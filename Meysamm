@@ -47,8 +47,8 @@
     "final": "dns-remote",
     "static_ips": {
       "sky.rethinkdns.com": [
-        "188.114.96.2",
         "188.114.97.2",
+        "188.114.96.2",
         "2a06:98c1:3120::2",
         "2a06:98c1:3121::2",
         "104.17.147.22",
@@ -95,7 +95,7 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "@Hiddify_Nexttt کانال تلگرامی ما J1 § 0"
+        "@Hiddify_Nexttt کانال تلگرامی ما § 0"
       ],
       "default": "auto"
     },
@@ -103,7 +103,7 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "@Hiddify_Nexttt کانال تلگرامی ما J1 § 0"
+        "@Hiddify_Nexttt کانال تلگرامی ما § 0"
       ],
       "url": "http://cp.cloudflare.com/",
       "interval": "10m0s",
@@ -111,13 +111,13 @@
     },
     {
       "type": "vless",
-      "tag": "@Hiddify_Nexttt کانال تلگرامی ما J1 § 0",
+      "tag": "@Hiddify_Nexttt کانال تلگرامی ما § 0",
       "server": "63.141.128.22",
-      "server_port": 8080,
-      "uuid": "526daa5c-0621-4522-a945-359de47d8ba2",
+      "server_port": 80,
+      "uuid": "ff0d9e6c-6b4c-40c2-9254-f602b21aa836",
       "transport": {
         "type": "ws",
-        "path": "/Join-ZEDMODEON-ZEDMODEON-ZEDMODEON-bia-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON",
+        "path": "/Join-ZEDMODEON-ZEDMODEON-ZEDMODEON-bia-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON",
         "headers": {
           "Host": "f.jOin.zEdMoDeOn.oNl."
         },
@@ -193,7 +193,7 @@
     },
     "clash_api": {
       "external_controller": "127.0.0.1:6756",
-      "secret": "x98aD24mAwlOCYDL"
+      "secret": "nHhVTm-SP8PVBxn3"
     }
   }
 }
