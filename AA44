@@ -1,0 +1,877 @@
+{
+  "log": {
+    "disabled": true,
+    "level": "panic"
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "Internet-dns",
+        "address": "tcp://94.140.14.14",
+        "strategy": "ipv4_only",
+        "detour": "Internet"
+      },
+      {
+        "tag": "direct-dns",
+        "address": "https://1.12.12.12/dns-query",
+        "strategy": "ipv4_only",
+        "detour": "direct"
+      }
+    ],
+    "rules": [
+      {
+        "network": "udp",
+        "port": 443,
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "outbound": "any",
+        "server": "direct-dns",
+        "rewrite_ttl": 20
+      },
+      {
+        "domain_suffix": [
+          ".ir",
+          ".xn--mgba3a4fra",
+          ".xn--mgba3a4f16a"
+        ],
+        "server": "direct-dns",
+        "rewrite_ttl": 20
+      }
+    ],
+    "strategy": "ipv4_only",
+    "independent_cache": true
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "Hiddify_Nexttt",
+      "mtu": 9000,
+      "address": "172.18.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "route_exclude_address": [
+        "192.168.0.0/16",
+        "fc00::/7"
+      ],
+      "stack": "mixed"
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "Internet",
+      "outbounds": [
+        "Selector-1",
+"Selector-2",
+"Selector-3",
+"Selector-4",
+"Selector-5",
+"Selector-6",
+"Selector-7",
+"Selector-8",
+"Selector-9",
+"Selector-10",
+"Selector-11",
+"Selector-12",
+"Selector-13",
+"Selector-14",
+"Selector-15",
+"Selector-16",
+"Selector-17",
+"Selector-18",
+"Selector-19",
+"Selector-20",
+"Selector-21",
+"Selector-22",
+"Selector-23",
+"Selector-24",
+"Selector-25",
+"Selector-26",
+"Selector-27",
+"Selector-28"
+      ]
+    },
+    {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "152.89.162.162",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-1",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "152.89.162.165",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-2",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+  
+  
+            {
+            
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "146.70.135.21",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-3",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+  {
+            
+            
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "146.70.169.226",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-4",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "146.70.169.229",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-5",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+  {
+            
+           
+            
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "38.54.75.90",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-6",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+    {
+            
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "37.120.145.60",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-7",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "45.12.221.187",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-8",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "45.12.221.187",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-9",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+  {
+             
+            
+            
+            
+
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "217.138.202.236",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-10",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "146.70.182.179",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "‌Selector-11",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+{
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "217.138.202.250",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-12",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "217.138.202.234",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-13",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+{
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "217.138.202.243",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-14",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+
+{
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "146.70.192.205",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-15",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "217.138.202.251",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-16",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+{
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "217.138.202.252",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-17",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+{
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "217.138.202.241",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-18",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "217.138.202.228",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-19",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+{
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "217.138.202.247",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-20",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+{
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "217.138.202.253",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-21",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "217.138.202.246",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-22",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "217.138.202.238",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-23",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+{
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "217.138.202.227",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-24",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+{
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "146.70.192.202",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-25",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+  
+           
+  
+{
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "217.138.202.237",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-26",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+{
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "217.138.202.242",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-27",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "C910E5F2-A662-7CFB-B5A6-5D39DB212CBA",
+            "path": "",
+            "server": "146.70.192.204",
+            "server_port": 7070,
+            "domain_strategy": "",
+            "tag": "Selector-28",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "ieee.org"
+            },
+            "type": "http",
+            "username": "telegram_wearestand"
+        },
+    {
+      "type": "direct",
+      "tag": "direct"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "inbound": "dns-in"
+          },
+          {
+            "port": 53
+          },
+          {
+            "protocol": "dns"
+          }
+        ],
+        "action": "hijack-dns"
+      },
+      {
+        "network": "tcp",
+        "port": 853,
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "network": "udp",
+        "port": [
+          443,
+          853
+        ],
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "protocol": "stun",
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "source_ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ],
+        "ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ],
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "ip_cidr": [
+          "10.10.34.34",
+          "10.10.34.35",
+          "10.10.34.36"
+        ],
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      },
+      {
+        "domain_suffix": [
+          ".ir",
+          ".xn--mgba3a4fra",
+          ".xn--mgba3a4f16a"
+        ],
+        "outbound": "direct"
+      }
+    ],
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "cache.db",
+      "cache_id": "Hiddify_Nexttt"
+    }
+  }
+}
