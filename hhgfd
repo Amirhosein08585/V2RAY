@@ -1,0 +1,210 @@
+{
+  "type": "http",
+  "tag": "Selector-1",
+  "server": "prox-tr.pointtoserver.com",
+  "server_port": 10780,
+  "username": "purevpn0d10722612",
+  "password": "xYXpDIhMLKLqB5",
+  "tls": {
+    "server_name": "ieee.org",
+    "alpn": "h2,http/1.1"
+  },
+  "headers": {
+    "Host": "stream.meet.google.com"
+  }
+},
+{
+  "type": "http",
+  "tag": "Selector-2",
+  "server": "prox-ph.pointtoserver.com",
+  "server_port": 10780,
+  "username": "purevpn0d10722612",
+  "password": "xYXpDIhMLKLqB5",
+  "tls": {
+    "server_name": "ieee.org",
+    "alpn": "h2,http/1.1"
+  },
+  "headers": {
+    "Host": "stream.meet.google.com"
+  }
+},
+{
+  "type": "http",
+  "tag": "Selector-3",
+  "server": "prox-fi.pointtoserver.com",
+  "server_port": 10780,
+  "username": "purevpn0d10722612",
+  "password": "xYXpDIhMLKLqB5",
+  "tls": {
+    "server_name": "ieee.org",
+    "alpn": "h2,http/1.1"
+  },
+  "headers": {
+    "Host": "stream.meet.google.com"
+  }
+},
+{
+  "type": "http",
+  "tag": "Selector-4",
+  "server": "prox-ro.pointtoserver.com",
+  "server_port": 10780,
+  "username": "purevpn0d10722612",
+  "password": "xYXpDIhMLKLqB5",
+  "tls": {
+    "server_name": "ieee.org",
+    "alpn": "h2,http/1.1"
+  },
+  "headers": {
+    "Host": "stream.meet.google.com"
+  }
+},
+{
+  "type": "http",
+  "tag": "Selector-5",
+  "server": "prox-fr.pointtoserver.com",
+  "server_port": 10780,
+  "username": "purevpn0d10722612",
+  "password": "xYXpDIhMLKLqB5",
+  "tls": {
+    "server_name": "ieee.org",
+    "alpn": "h2,http/1.1"
+  },
+  "headers": {
+    "Host": "stream.meet.google.com"
+  }
+},
+{
+  "type": "http",
+  "tag": "Selector-6",
+  "server": "prox-se.pointtoserver.com",
+  "server_port": 10780,
+  "username": "purevpn0d10722612",
+  "password": "xYXpDIhMLKLqB5",
+  "tls": {
+    "server_name": "ieee.org",
+    "alpn": "h2,http/1.1"
+  },
+  "headers": {
+    "Host": "stream.meet.google.com"
+  }
+},
+{
+  "type": "http",
+  "tag": "Selector-7",
+  "server": "prox-is.pointtoserver.com",
+  "server_port": 10780,
+  "username": "purevpn0d10722612",
+  "password": "xYXpDIhMLKLqB5",
+  "tls": {
+    "server_name": "ieee.org",
+    "alpn": "h2,http/1.1"
+  },
+  "headers": {
+    "Host": "stream.meet.google.com"
+  }
+},
+{
+  "type": "http",
+  "tag": "Selector-8",
+  "server": "prox-de.pointtoserver.com",
+  "server_port": 10780,
+  "username": "purevpn0d10722612",
+  "password": "xYXpDIhMLKLqB5",
+  "tls": {
+    "server_name": "ieee.org",
+    "alpn": "h2,http/1.1"
+  },
+  "headers": {
+    "Host": "stream.meet.google.com"
+  }
+},
+{
+  "type": "http",
+  "tag": "Selector-9",
+  "server": "prox-ae.pointtoserver.com",
+  "server_port": 10780,
+  "username": "purevpn0d10722612",
+  "password": "xYXpDIhMLKLqB5",
+  "tls": {
+    "server_name": "ieee.org",
+    "alpn": "h2,http/1.1"
+  },
+  "headers": {
+    "Host": "stream.meet.google.com"
+  }
+},
+{
+  "type": "http",
+  "tag": "Selector-10",
+  "server": "prox-al.pointtoserver.com",
+  "server_port": 10780,
+  "username": "purevpn0d10722612",
+  "password": "xYXpDIhMLKLqB5",
+  "tls": {
+    "server_name": "ieee.org",
+    "alpn": "h2,http/1.1"
+  },
+  "headers": {
+    "Host": "stream.meet.google.com"
+  }
+},
+{
+  "type": "http",
+  "tag": "Selector-11",
+  "server": "prox-at.pointtoserver.com",
+  "server_port": 10780,
+  "username": "purevpn0d10722612",
+  "password": "xYXpDIhMLKLqB5",
+  "tls": {
+    "server_name": "ieee.org",
+    "alpn": "h2,http/1.1"
+  },
+  "headers": {
+    "Host": "stream.meet.google.com"
+  }
+},
+{
+  "type": "http",
+  "tag": "Selector-12",
+  "server": "prox-al.pointtoserver.com",
+  "server_port": 10780,
+  "username": "purevpn0d10722612",
+  "password": "xYXpDIhMLKLqB5",
+  "tls": {
+    "server_name": "ieee.org",
+    "alpn": "h2,http/1.1"
+  },
+  "headers": {
+    "Host": "stream.meet.google.com"
+  }
+},
+{
+  "type": "http",
+  "tag": "Selector-13",
+  "server": "prox-be.pointtoserver.com",
+  "server_port": 10780,
+  "username": "purevpn0d10722612",
+  "password": "xYXpDIhMLKLqB5",
+  "tls": {
+    "server_name": "ieee.org",
+    "alpn": "h2,http/1.1"
+  },
+  "headers": {
+    "Host": "stream.meet.google.com"
+  }
+},
+{
+  "type": "http",
+  "tag": "Selector-14",
+  "server": "prox-bg.pointtoserver.com",
+  "server_port": 10780,
+  "username": "purevpn0d10722612",
+  "password": "xYXpDIhMLKLqB5",
+  "tls": {
+    "server_name": "ieee.org",
+    "alpn": "h2,http/1.1"
+  },
+  "headers": {
+    "Host": "stream.meet.google.com"
+  }
+}
