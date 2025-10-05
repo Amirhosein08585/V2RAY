@@ -1,0 +1,861 @@
+{
+  "log": {
+    "level": "warn",
+    "output": "box.log",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns-remote",
+        "address": "udp://1.1.1.1",
+        "address_resolver": "dns-direct"
+      },
+      {
+        "tag": "dns-trick-direct",
+        "address": "https://sky.rethinkdns.com/",
+        "detour": "direct-fragment"
+      },
+      {
+        "tag": "dns-direct",
+        "address": "1.1.1.1",
+        "address_resolver": "dns-local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-local",
+        "address": "local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-block",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "domain": [
+          "nl03-vlr01.tcp-reset-club.net",
+          "de01-vlr01.tcp-reset-club.net",
+          "us01-vlr01.tcp-reset-club.net",
+          "kz01-vlr01.tcp-reset-club.net",
+          "tr01-vlr01.tcp-reset-club.net",
+          "bgr01-vlr01.tcp-reset-club.net",
+          "kr01-vlr01.tcp-reset-club.net",
+          "nl01-vlr02.tcp-reset-club.net",
+          "gb01-vlr01.tcp-reset-club.net",
+          "ru01-blh03.tcp-reset-club.net",
+          "ru01-blh04.tcp-reset-club.net",
+          "cze01-vlr01.tcp-reset-club.net",
+          "hk01-vlr01.tcp-reset-club.net",
+          "jp01-vlr01.tcp-reset-club.net",
+          "nl02-vlr01.tcp-reset-club.net",
+          "ita01-vlr01.tcp-reset-club.net",
+          "isr01-vlr01.tcp-reset-club.net",
+          "ae01-vlr01.tcp-reset-club.net",
+          "ind01-vlr01.tcp-reset-club.net",
+          "ru01-blh01.tcp-reset-club.net",
+          "fin01-vlr01.tcp-reset-club.net",
+          "ru01-vlr01.tcp-reset-club.net",
+          "gb02-vlr01.tcp-reset-club.net",
+          "fr01-vlr01.tcp-reset-club.net",
+          "ru-nl01-vlr01.tcp-reset-club.net",
+          "est01-vlr01.tcp-reset-club.net",
+          "ru01-blh02.tcp-reset-club.net"
+        ],
+        "server": "dns-direct"
+      },
+      {
+        "domain_suffix": ".ir",
+        "geosite": "ir",
+        "server": "dns-direct"
+      },
+      {
+        "domain": "cp.cloudflare.com",
+        "server": "dns-remote",
+        "rewrite_ttl": 3000
+      }
+    ],
+    "final": "dns-remote",
+    "static_ips": {
+      "sky.rethinkdns.com": [
+        "188.114.96.3",
+        "188.114.97.3",
+        "2a06:98c1:3123::",
+        "2a06:98c1:3122::",
+        "104.17.147.22",
+        "104.17.148.22",
+        "104.18.1.48",
+        "104.18.0.48",
+        "2606:4700::6812:30",
+        "2606:4700::6812:130"
+      ]
+    },
+    "independent_cache": true
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "mtu": 9000,
+      "inet4_address": "172.19.0.1/28",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "mixed",
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 2334,
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "127.0.0.1",
+      "listen_port": 6450
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "🇳🇱 Netherl | UltraFast | YT | noP2P § 0",
+        "🇫🇮 Finland | Fast | IPv6 | noP2P § 1",
+        "🇪🇪 Estonia | Fast  | YT | noP2P § 2",
+        "🇬🇧 England | Fast | noP2P § 3",
+        "🇩🇪 Germany | Fast | noP2P § 4",
+        "🇷🇺 Russia | YT | P2P § 5",
+        "🇰🇿 Kazakhstan | noP2P § 6",
+        "🇺🇸 United States | noP2P § 7",
+        "🇺🇸 Gemini  | AI Studio | noP2P § 8",
+        "🇫🇷 France | noP2P § 9",
+        "🇨🇿 Czech Republic | noP2P § 10",
+        "🇧🇬 Bulgaria | noP2P § 11",
+        "🇮🇹 Italy | noP2P § 12",
+        "🇮🇱 Israel | noP2P § 13",
+        "🇹🇷 Turkey | noP2P § 14",
+        "🇦🇪 United Arab Emirates | noP2P § 15",
+        "🇮🇳 India | noP2P § 16",
+        "🇭🇰 Hong Kong | noP2P § 17",
+        "🇯🇵 Japan | noP2P § 18",
+        "🇰🇷 South Korea | noP2P § 19",
+        "🇳🇱 Netherl | Fast | YT | P2P-Torrents § 20",
+        "🇳🇱 Netherl | Fast | IPv6 | P2P § 21",
+        "🇳🇱 Netherl via Russia | P2P § 22",
+        "⚫ LTE | Моб. белый список | vk § 23",
+        "⚫ LTE | Моб. белый список | kinopoisk § 24",
+        "⚫ LTE | Моб. белый список | rutube § 25",
+        "⚫ LTE | Моб. белый список | wldbrs § 26"
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "🇳🇱 Netherl | UltraFast | YT | noP2P § 0",
+        "🇫🇮 Finland | Fast | IPv6 | noP2P § 1",
+        "🇪🇪 Estonia | Fast  | YT | noP2P § 2",
+        "🇬🇧 England | Fast | noP2P § 3",
+        "🇩🇪 Germany | Fast | noP2P § 4",
+        "🇷🇺 Russia | YT | P2P § 5",
+        "🇰🇿 Kazakhstan | noP2P § 6",
+        "🇺🇸 United States | noP2P § 7",
+        "🇺🇸 Gemini  | AI Studio | noP2P § 8",
+        "🇫🇷 France | noP2P § 9",
+        "🇨🇿 Czech Republic | noP2P § 10",
+        "🇧🇬 Bulgaria | noP2P § 11",
+        "🇮🇹 Italy | noP2P § 12",
+        "🇮🇱 Israel | noP2P § 13",
+        "🇹🇷 Turkey | noP2P § 14",
+        "🇦🇪 United Arab Emirates | noP2P § 15",
+        "🇮🇳 India | noP2P § 16",
+        "🇭🇰 Hong Kong | noP2P § 17",
+        "🇯🇵 Japan | noP2P § 18",
+        "🇰🇷 South Korea | noP2P § 19",
+        "🇳🇱 Netherl | Fast | YT | P2P-Torrents § 20",
+        "🇳🇱 Netherl | Fast | IPv6 | P2P § 21",
+        "🇳🇱 Netherl via Russia | P2P § 22",
+        "⚫ LTE | Моб. белый список | vk § 23",
+        "⚫ LTE | Моб. белый список | kinopoisk § 24",
+        "⚫ LTE | Моб. белый список | rutube § 25",
+        "⚫ LTE | Моб. белый список | wldbrs § 26"
+      ],
+      "url": "http://cp.cloudflare.com/",
+      "interval": "10m0s",
+      "idle_timeout": "1h40m0s"
+    },
+    {
+      "type": "vless",
+      "tag": "🇳🇱 Netherl | UltraFast | YT | noP2P § 0",
+      "server": "nl02-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "175d"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇫🇮 Finland | Fast | IPv6 | noP2P § 1",
+      "server": "fin01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "e499f276e7bd6420"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇪🇪 Estonia | Fast  | YT | noP2P § 2",
+      "server": "est01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "175d"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇬🇧 England | Fast | noP2P § 3",
+      "server": "gb01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "8453e5fd9af927"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇩🇪 Germany | Fast | noP2P § 4",
+      "server": "de01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "175d"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇷🇺 Russia | YT | P2P § 5",
+      "server": "ru01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "86e999a2cdc2"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇰🇿 Kazakhstan | noP2P § 6",
+      "server": "kz01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "d3b13f31"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸 United States | noP2P § 7",
+      "server": "us01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "31"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸 Gemini  | AI Studio | noP2P § 8",
+      "server": "gb02-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "e499f276e7bd6420"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇫🇷 France | noP2P § 9",
+      "server": "fr01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "175d"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇨🇿 Czech Republic | noP2P § 10",
+      "server": "cze01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "f79448a30d"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇧🇬 Bulgaria | noP2P § 11",
+      "server": "bgr01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "f79448a30d"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇮🇹 Italy | noP2P § 12",
+      "server": "ita01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "31"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇮🇱 Israel | noP2P § 13",
+      "server": "isr01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "d3b13f31"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇹🇷 Turkey | noP2P § 14",
+      "server": "tr01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "31"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇦🇪 United Arab Emirates | noP2P § 15",
+      "server": "ae01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "8453e5fd9af927"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇮🇳 India | noP2P § 16",
+      "server": "ind01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "175d"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇭🇰 Hong Kong | noP2P § 17",
+      "server": "hk01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "8453e5fd9af927"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇯🇵 Japan | noP2P § 18",
+      "server": "jp01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "48720c"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇰🇷 South Korea | noP2P § 19",
+      "server": "kr01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "8453e5fd9af927"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇳🇱 Netherl | Fast | YT | P2P-Torrents § 20",
+      "server": "nl01-vlr02.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "8453e5fd9af927"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇳🇱 Netherl | Fast | IPv6 | P2P § 21",
+      "server": "nl03-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "175d"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇳🇱 Netherl via Russia | P2P § 22",
+      "server": "ru-nl01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "175d"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "⚫ LTE | Моб. белый список | vk § 23",
+      "server": "ru01-blh01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "stats.vk-portal.net",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "e499f276e7bd6420"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "⚫ LTE | Моб. белый список | kinopoisk § 24",
+      "server": "ru01-blh02.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.kinopoisk.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "d3b13f31"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "⚫ LTE | Моб. белый список | rutube § 25",
+      "server": "ru01-blh03.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "rutube.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "d3b13f31"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "⚫ LTE | Моб. белый список | wldbrs § 26",
+      "server": "ru01-blh04.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "splitter.wb.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "f79448a30d"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "direct",
+      "tag": "direct-fragment",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "1-500",
+        "sleep": "0-500"
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "bypass"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "geoip": {
+      "path": "geo-assets/sagernet-sing-geoip-geoip.db"
+    },
+    "geosite": {
+      "path": "geo-assets/sagernet-sing-geosite-geosite.db"
+    },
+    "rules": [
+      {
+        "inbound": "dns-in",
+        "outbound": "dns-out"
+      },
+      {
+        "port": 53,
+        "outbound": "dns-out"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "select"
+      },
+      {
+        "domain_suffix": ".ir",
+        "geosite": "ir",
+        "geoip": "ir",
+        "outbound": "bypass"
+      }
+    ],
+    "final": "select",
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "clash.db"
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:6756",
+      "secret": "T9TZU1KvEJ20dBzQ"
+    }
+  }
+}
