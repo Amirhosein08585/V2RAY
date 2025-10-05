@@ -1,0 +1,624 @@
+
+        "🇳🇱 Netherl | UltraFast | YT | noP2P ",
+        "🇫🇮 Finland | Fast | IPv6 | noP2P ",
+        "🇪🇪 Estonia | Fast  | YT | noP2P ",
+        "🇬🇧 England | Fast | noP2P ",
+        "🇩🇪 Germany | Fast | noP2P ",
+        "🇷🇺 Russia | YT | P2P ",
+        "🇰🇿 Kazakhstan | noP2P ",
+        "🇺🇸 United States | noP2P ",
+        "🇺🇸 Gemini  | AI Studio | noP2P ",
+        "🇫🇷 France | noP2P ",
+        "🇨🇿 Czech Republic | noP2P ",
+        "🇧🇬 Bulgaria | noP2P ",
+        "🇮🇹 Italy | noP2P ",
+        "🇮🇱 Israel | noP2P ",
+        "🇹🇷 Turkey | noP2P ",
+        "🇦🇪 United Arab Emirates | noP2P ",
+        "🇮🇳 India | noP2P ",
+        "🇭🇰 Hong Kong | noP2P ",
+        "🇯🇵 Japan | noP2P ",
+        "🇰🇷 South Korea | noP2P ",
+        "🇳🇱 Netherl | Fast | YT | P2P-Torrents ",
+        "🇳🇱 Netherl | Fast | IPv6 | P2P ",
+        "🇳🇱 Netherl via Russia | P2P ",
+        "⚫ LTE | Моб. белый список | vk ",
+        "⚫ LTE | Моб. белый список | kinopoisk ",
+        "⚫ LTE | Моб. белый список | rutube ",
+        "⚫ LTE | Моб. белый список | wldbrs "
+    
+   
+     {
+      "type": "vless",
+      "tag": "🇳🇱 Netherl | UltraFast | YT | noP2P ",
+      "server": "nl02-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "175d"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇫🇮 Finland | Fast | IPv6 | noP2P ",
+      "server": "fin01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "e499f276e7bd6420"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇪🇪 Estonia | Fast  | YT | noP2P ",
+      "server": "est01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "175d"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇬🇧 England | Fast | noP2P ",
+      "server": "gb01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "8453e5fd9af927"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇩🇪 Germany | Fast | noP2P ",
+      "server": "de01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "175d"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇷🇺 Russia | YT | P2P ",
+      "server": "ru01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "86e999a2cdc2"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇰🇿 Kazakhstan | noP2P ",
+      "server": "kz01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "d3b13f31"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸 United States | noP2P ",
+      "server": "us01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "31"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸 Gemini  | AI Studio | noP2P ",
+      "server": "gb02-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "e499f276e7bd6420"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇫🇷 France | noP2P ",
+      "server": "fr01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "175d"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇨🇿 Czech Republic | noP2P ",
+      "server": "cze01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "f79448a30d"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇧🇬 Bulgaria | noP2P ",
+      "server": "bgr01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "f79448a30d"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇮🇹 Italy | noP2P ",
+      "server": "ita01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "31"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇮🇱 Israel | noP2P ",
+      "server": "isr01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "d3b13f31"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇹🇷 Turkey | noP2P ",
+      "server": "tr01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "31"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇦🇪 United Arab Emirates | noP2P ",
+      "server": "ae01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "8453e5fd9af927"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇮🇳 India | noP2P ",
+      "server": "ind01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "175d"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇭🇰 Hong Kong | noP2P ",
+      "server": "hk01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "8453e5fd9af927"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇯🇵 Japan | noP2P ",
+      "server": "jp01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "48720c"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇰🇷 South Korea | noP2P ",
+      "server": "kr01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "8453e5fd9af927"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇳🇱 Netherl | Fast | YT | P2P-Torrents ",
+      "server": "nl01-vlr02.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "8453e5fd9af927"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇳🇱 Netherl | Fast | IPv6 | P2P ",
+      "server": "nl03-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "175d"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "🇳🇱 Netherl via Russia | P2P ",
+      "server": "ru-nl01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "175d"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "⚫ LTE | Моб. белый список | vk ",
+      "server": "ru01-blh01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "stats.vk-portal.net",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "e499f276e7bd6420"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "⚫ LTE | Моб. белый список | kinopoisk ",
+      "server": "ru01-blh02.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.kinopoisk.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "d3b13f31"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "⚫ LTE | Моб. белый список | rutube ",
+      "server": "ru01-blh03.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "rutube.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "d3b13f31"
+        }
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "⚫ LTE | Моб. белый список | wldbrs ",
+      "server": "ru01-blh04.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "splitter.wb.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "f79448a30d"
+        }
+      },
+      "packet_encoding": ""
+    },
