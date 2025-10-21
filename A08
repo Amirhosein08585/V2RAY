@@ -1,0 +1,244 @@
+
+
+{
+  "log": {
+    "disabled": true,
+    "level": "panic"
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "Internet-dns",
+        "address": "tcp://94.140.14.14",
+        "strategy": "ipv4_only",
+        "detour": "Internet"
+      },
+      {
+        "tag": "direct-dns",
+        "address": "https://1.12.12.12/dns-query",
+        "strategy": "ipv4_only",
+        "detour": "direct"
+      }
+    ],
+    "rules": [
+      {
+        "network": "udp",
+        "port": 443,
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "outbound": "any",
+        "server": "direct-dns",
+        "rewrite_ttl": 20
+      },
+      {
+        "domain_suffix": [
+          ".ir",
+          ".xn--mgba3a4fra",
+          ".xn--mgba3a4f16a"
+        ],
+        "server": "direct-dns",
+        "rewrite_ttl": 20
+      }
+    ],
+    "strategy": "ipv4_only",
+    "independent_cache": true
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "Hiddify_Nexttt",
+      "mtu": 9000,
+      "address": "172.18.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "route_exclude_address": [
+        "192.168.0.0/16",
+        "fc00::/7"
+      ],
+      "stack": "mixed"
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "Internet",
+      "outbounds": [
+        
+
+
+
+
+
+"🇺🇸 United States | noP2P",
+"🇺🇸 Gemini  | AI Studio | noP2P",
+"🇳🇱 Netherl via Russia | P2P"
+
+      ]
+    },
+    
+
+
+  
+    
+    {
+      "type": "vless",
+      "tag": "🇺🇸 United States | noP2P",
+      "server": "us01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "175d"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸 Gemini  | AI Studio | noP2P",
+      "server": "us01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "48720c"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    
+    {
+      "type": "vless",
+      "tag": "🇳🇱 Netherl via Russia | P2P",
+      "server": "ru-nl01-vlr01.tcp-reset-club.net",
+      "server_port": 443,
+      "uuid": "d3df9e33-b624-48a3-b03d-17e3581e475c",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "hls-svod.itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mLmBhbVFfNuo2eUgBh6r9-5Koz9mUCn3aSzlR6IejUg",
+          "short_id": "f79448a30d"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "inbound": "dns-in"
+          },
+          {
+            "port": 53
+          },
+          {
+            "protocol": "dns"
+          }
+        ],
+        "action": "hijack-dns"
+      },
+      {
+        "network": "tcp",
+        "port": 853,
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "network": "udp",
+        "port": [
+          443,
+          853
+        ],
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "protocol": "stun",
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "source_ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ],
+        "ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ],
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "ip_cidr": [
+          "10.10.34.34",
+          "10.10.34.35",
+          "10.10.34.36"
+        ],
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      },
+      {
+        "domain_suffix": [
+          ".ir",
+          ".xn--mgba3a4fra",
+          ".xn--mgba3a4f16a"
+        ],
+        "outbound": "direct"
+      }
+    ],
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "cache.db",
+      "cache_id": "Hiddify_Nexttt"
+    }
+  }
+}
+
