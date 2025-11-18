@@ -1,0 +1,429 @@
+{
+  "log": {
+    "disabled": true,
+    "level": "panic"
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "Internet-dns",
+        "address": "tcp://94.140.14.14",
+        "strategy": "ipv4_only",
+        "detour": "Internet"
+      },
+      {
+        "tag": "direct-dns",
+        "address": "https://1.12.12.12/dns-query",
+        "strategy": "ipv4_only",
+        "detour": "direct"
+      }
+    ],
+    "rules": [
+      {
+        "network": "udp",
+        "port": 443,
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "outbound": "any",
+        "server": "direct-dns",
+        "rewrite_ttl": 20
+      },
+      {
+        "domain_suffix": [
+          ".ir",
+          ".xn--mgba3a4fra",
+          ".xn--mgba3a4f16a"
+        ],
+        "server": "direct-dns",
+        "rewrite_ttl": 20
+      }
+    ],
+    "strategy": "ipv4_only",
+    "independent_cache": true
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "Hiddify_Nexttt",
+      "mtu": 9000,
+      "address": "172.18.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "route_exclude_address": [
+        "192.168.0.0/16",
+        "fc00::/7"
+      ],
+      "stack": "mixed"
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "Internet",
+      "outbounds": [
+        
+
+
+
+"Selector-A",
+"Selector-B",
+"Selector-C",
+"Selector-D",
+"Selector-E",
+"Selector-F",
+"Selector-G",
+"Selector-H",
+"Selector-I",
+"Selector-J"
+
+
+
+      ]
+    },
+    
+
+
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "BBB23A5D-44F1-2AF1-83A0-B65222D16BCA",
+            "path": "",
+            "server": "152.89.162.162",
+            "server_port": 443,
+            "domain_strategy": "",
+            "tag": "Selector-A",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "google.com"
+            },
+            "type": "http",
+            "username": "Telegram_iranramona"
+        },
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "BBB23A5D-44F1-2AF1-83A0-B65222D16BCA",
+            "path": "",
+            "server": "152.89.162.165",
+            "server_port": 443,
+            "domain_strategy": "",
+            "tag": "Selector-B",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "google.com"
+            },
+            "type": "http",
+            "username": "Telegram_iranramona"
+        },
+  
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "BBB23A5D-44F1-2AF1-83A0-B65222D16BCA",
+            "path": "",
+            "server": "146.70.135.21",
+            "server_port": 443,
+            "domain_strategy": "",
+            "tag": "Selector-C",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "google.com"
+            },
+            "type": "http",
+            "username": "Telegram_iranramona"
+        },
+  
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "BBB23A5D-44F1-2AF1-83A0-B65222D16BCA",
+            "path": "",
+            "server": "146.70.169.226",
+            "server_port": 443,
+            "domain_strategy": "",
+            "tag": "Selector-D",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "google.com"
+            },
+            "type": "http",
+            "username": "Telegram_iranramona"
+        },
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "BBB23A5D-44F1-2AF1-83A0-B65222D16BCA",
+            "path": "",
+            "server": "146.70.169.229",
+            "server_port": 443,
+            "domain_strategy": "",
+            "tag": "Selector-E",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "google.com"
+            },
+            "type": "http",
+            "username": "Telegram_iranramona"
+        },
+ 
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "BBB23A5D-44F1-2AF1-83A0-B65222D16BCA",
+            "path": "",
+            "server": "37.120.145.60",
+            "server_port": 443,
+            "domain_strategy": "",
+            "tag": "Selector-F",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "google.com"
+            },
+            "type": "http",
+            "username": "Telegram_iranramona"
+        },
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "BBB23A5D-44F1-2AF1-83A0-B65222D16BCA",
+            "path": "",
+            "server": "45.12.221.187",
+            "server_port": 443,
+            "domain_strategy": "",
+            "tag": "Selector-G",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "google.com"
+            },
+            "type": "http",
+            "username": "Telegram_iranramona"
+        },
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "BBB23A5D-44F1-2AF1-83A0-B65222D16BCA",
+            "path": "",
+            "server": "45.12.221.187",
+            "server_port": 443,
+            "domain_strategy": "",
+            "tag": "Selector-H",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "google.com"
+            },
+            "type": "http",
+            "username": "Telegram_iranramona"
+        },
+ 
+
+
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "BBB23A5D-44F1-2AF1-83A0-B65222D16BCA",
+            "path": "",
+            "server": "217.138.202.234",
+            "server_port": 443,
+            "domain_strategy": "",
+            "tag": "Selector-I",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "google.com"
+            },
+            "type": "http",
+            "username": "Telegram_iranramona"
+        },
+
+  {
+            "headers": {
+                "Host": [
+                    "stream.meet.google.com"
+                ]
+            },
+            "password": "BBB23A5D-44F1-2AF1-83A0-B65222D16BCA",
+            "path": "",
+            "server": "185.125.169.171",
+            "server_port": 443,
+            "domain_strategy": "",
+            "tag": "Selector-J",
+            "tls": {
+                "alpn": [
+                    "h2,http/1.1"
+                ],
+                "disable_sni": false,
+                "enabled": true,
+                "insecure": true,
+                "server_name": "google.com"
+            },
+            "type": "http",
+            "username": "Telegram_iranramona"
+        },
+
+  
+
+    {
+      "type": "direct",
+      "tag": "direct"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "inbound": "dns-in"
+          },
+          {
+            "port": 53
+          },
+          {
+            "protocol": "dns"
+          }
+        ],
+        "action": "hijack-dns"
+      },
+      {
+        "network": "tcp",
+        "port": 853,
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "network": "udp",
+        "port": [
+          443,
+          853
+        ],
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "protocol": "stun",
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "source_ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ],
+        "ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ],
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "ip_cidr": [
+          "10.10.34.34",
+          "10.10.34.35",
+          "10.10.34.36"
+        ],
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      },
+      {
+        "domain_suffix": [
+          ".ir",
+          ".xn--mgba3a4fra",
+          ".xn--mgba3a4f16a"
+        ],
+        "outbound": "direct"
+      }
+    ],
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "cache.db",
+      "cache_id": "Hiddify_Nexttt"
+    }
+  }
+}
