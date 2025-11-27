@@ -1,0 +1,6 @@
+{
+  "srcBucket": "my-test-bucket",
+  "srcVideo": "example.mp4",
+  "guid": "1234-5678",
+  "archiveSource": "archive-value"
+}
