@@ -87,9 +87,10 @@
         "auto",
         "direct",
         
-"@Hiddify_Nexttt 1",
-"@Hiddify_Nexttt 2",
-"@Hiddify_Nexttt 3"
+"FIN",
+"Geb",
+"Esp",
+"Turk"
       ],
       "tag": "proxy",
       "type": "selector"
@@ -98,9 +99,10 @@
       "interval": "10m",
       "outbounds": [
         
-"@Hiddify_Nexttt 1",
-"@Hiddify_Nexttt 2",
-"@Hiddify_Nexttt 3"
+"FIN",
+"Geb",
+"Esp",
+"Turk"
       ],
       "tag": "auto",
       "tolerance": 50,
@@ -112,38 +114,96 @@
       "type": "direct"
     },
     
-  
-      
-    {
-      "type": "http",
-      "tag": "@Hiddify_Nexttt 1",
-      "server": "89.249.65.199",
-      "server_port": 10780,
-      "headers": {
-        "Host": "stream.meet.google.com",
-        "Proxy-Authorization": "Basic cHVyZXZwbjBzMTgyMTQ4MDg6ME0zdXVxbkA1JExD"
-      }
+  {
+      "type": "vless",
+      "tag": "FIN",
+      "server": "fi-h2-01.com",
+      "server_port": 8104,
+      "uuid": "ef4637fb-b2a8-4eab-bfc4-b1ec957c6cfb",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "tradingview.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "4gcDJumxa0bTaHvrZRL4Hb5ItXPha6ZYZ0fGmMD_k0A",
+          "short_id": "9f4ca836ca270ef8"
+        }
+      },
+      "packet_encoding": ""
     },
-    {
-      "type": "http",
-      "tag": "@Hiddify_Nexttt 2",
-      "server": "89.249.65.206",
-      "server_port": 10780,
-      "headers": {
-        "Host": "stream.meet.google.com",
-        "Proxy-Authorization": "Basic cHVyZXZwbjBzMTgyMTQ4MDg6ME0zdXVxbkA1JExD"
-      }
+{
+      "type": "vless",
+      "tag": "Geb",
+      "server": "45.12.136.48",
+      "server_port": 443,
+      "uuid": "c5c9d8ec-6c95-4f84-a395-de41ef895f34",
+      "tls": {
+        "enabled": true,
+        "server_name": "mirror.yandex.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "E-fIlniARgucl-Y8wctxQr4wPuDibRYnOCHCYAEVbws",
+          "short_id": "821610e2"
+        }
+      },
+      "packet_encoding": ""
     },
-    {
-      "type": "http",
-      "tag": "@Hiddify_Nexttt 3",
-      "server": "89.238.150.20",
-      "server_port": 10780,
-      "headers": {
-        "Host": "stream.meet.google.com",
-        "Proxy-Authorization": "Basic cHVyZXZwbjBzMTgyMTQ4MDg6ME0zdXVxbkA1JExD"
-      }
-    }
+
+{
+      "type": "vless",
+      "tag": "Esp",
+      "server": "velsanto.online",
+      "server_port": 8443,
+      "uuid": "e0e23e65-6880-44b4-a2b8-d3a5e731f0e6",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "tradingview.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "zr8_rtHm86s_G1gfRwNtunStGngYZSdYkA3PyBFXpDg",
+          "short_id": "04bf0403f96e5b4b"
+        }
+      },
+      "packet_encoding": ""
+    },
+
+{
+      "type": "vless",
+      "tag": "Turk",
+      "server": "quarenty.site",
+      "server_port": 8443,
+      "uuid": "6257bd0f-18d6-41cc-8e41-fe183cf63881",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "tradingview.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "zii4nGNapnFKL6SN8GzWNqFlElBvUCUFUThEP0kFH04",
+          "short_id": "205748bc0f24a747"
+        }
+      },
+      "packet_encoding": ""
+    },
+
   ],
   "route": {
     "auto_detect_interface": true,
