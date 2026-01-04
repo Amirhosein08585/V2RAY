@@ -1,0 +1,383 @@
+
+
+{
+  "dns": {
+    "final": "local-dns",
+    "rules": [
+      {
+        "action": "route",
+        "clash_mode": "Global",
+        "server": "proxy-dns",
+        "source_ip_cidr": [
+          "172.19.0.0/30",
+          "fdfe:dcba:9876::1/126"
+        ]
+      },
+      {
+        "action": "route",
+        "server": "proxy-dns",
+        "source_ip_cidr": [
+          "172.19.0.0/30",
+          "fdfe:dcba:9876::1/126"
+        ]
+      },
+      {
+        "action": "route",
+        "clash_mode": "Direct",
+        "server": "direct-dns"
+      },
+      {
+        "action": "route",
+        "rule_set": [
+          "geosite-ir"
+        ],
+        "server": "direct-dns"
+      }
+    ],
+    "servers": [
+      {
+        "address": "tcp://1.1.1.1",
+        "address_resolver": "local-dns",
+        "detour": "proxy",
+        "tag": "proxy-dns"
+      },
+      {
+        "address": "local",
+        "detour": "direct",
+        "tag": "local-dns"
+      },
+      {
+        "address": "tcp://8.8.8.8",
+        "detour": "direct",
+        "tag": "direct-dns"
+      }
+    ],
+    "strategy": "prefer_ipv4"
+  },
+  "inbounds": [
+    {
+      "address": [
+        "172.19.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
+      "auto_route": true,
+      "endpoint_independent_nat": false,
+      "mtu": 9000,
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 2080
+        }
+      },
+      "stack": "system",
+      "strict_route": false,
+      "type": "tun"
+    },
+    {
+      "listen": "127.0.0.1",
+      "listen_port": 2080,
+      "type": "mixed",
+      "users": []
+    }
+  ],
+  "outbounds": [
+    {
+      "outbounds": [
+        "auto",
+        "direct",
+        "France1",
+        "SouthKorea2",
+        "UnitedKingdom3",
+        "USA4",
+        "USA5",
+        "USA6",
+        "Singapore7",
+        "Japan8",
+        "SouthKorea9",
+        "USA10"
+      ],
+      "tag": "proxy",
+      "type": "selector"
+    },
+    {
+      "interval": "10m",
+      "outbounds": [
+        "France1",
+        "SouthKorea2",
+        "UnitedKingdom3",
+        "USA4",
+        "USA5",
+        "USA6",
+        "Singapore7",
+        "Japan8",
+        "SouthKorea9",
+        "USA10"
+      ],
+      "tag": "auto",
+      "tolerance": 50,
+      "type": "urltest",
+      "url": "http://www.gstatic.com/generate_204"
+    },
+    {
+      "tag": "direct",
+      "type": "direct"
+    },
+    {
+      "tag": "France1",
+      "type": "tuic",
+      "server": "[2001:bc8:32d7:302::16]",
+      "server_port": 34997,
+      "uuid": "8687b6e0-ef24-4cd2-bcd2-02d3732bf554",
+      "password": "dongtaiwang.com",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "tls": {
+        "enabled": true,
+        "server_name": "bing.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "SouthKorea2",
+      "type": "tuic",
+      "server": "130.162.157.157",
+      "server_port": 52706,
+      "uuid": "d9812081-7f61-456d-9340-a1fb8dfd603b",
+      "password": "d9812081-7f61-456d-9340-a1fb8dfd603b",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "tls": {
+        "enabled": true,
+        "server_name": "shouer.nezhasu.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "UnitedKingdom3",
+      "type": "tuic",
+      "server": "132.145.68.142",
+      "server_port": 55024,
+      "uuid": "d9812081-7f61-456d-9340-a1fb8dfd603b",
+      "password": "d9812081-7f61-456d-9340-a1fb8dfd603b",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "tls": {
+        "enabled": true,
+        "server_name": "lundun2.nezhasu.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "USA4",
+      "type": "tuic",
+      "server": "132.226.99.211",
+      "server_port": 64015,
+      "uuid": "d9812081-7f61-456d-9340-a1fb8dfd603b",
+      "password": "d9812081-7f61-456d-9340-a1fb8dfd603b",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "tls": {
+        "enabled": true,
+        "server_name": "lundun2.nezhasu.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "USA5",
+      "type": "tuic",
+      "server": "132.226.99.211",
+      "server_port": 64015,
+      "uuid": "d9812081-7f61-456d-9340-a1fb8dfd603b",
+      "password": "d9812081-7f61-456d-9340-a1fb8dfd603b",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "tls": {
+        "enabled": true,
+        "server_name": "phoenix-2.nezhasu.cn",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "USA6",
+      "type": "tuic",
+      "server": "141.148.44.35",
+      "server_port": 51500,
+      "uuid": "d9812081-7f61-456d-9340-a1fb8dfd603b",
+      "password": "d9812081-7f61-456d-9340-a1fb8dfd603b",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "tls": {
+        "enabled": true,
+        "server_name": "lundun2.nezhasu.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "Singapore7",
+      "type": "tuic",
+      "server": "146.235.19.84",
+      "server_port": 50563,
+      "uuid": "d9812081-7f61-456d-9340-a1fb8dfd603b",
+      "password": "d9812081-7f61-456d-9340-a1fb8dfd603b",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "tls": {
+        "enabled": true,
+        "server_name": "singapore.nezhasu.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "Japan8",
+      "type": "tuic",
+      "server": "150.230.4.133",
+      "server_port": 57277,
+      "uuid": "d9812081-7f61-456d-9340-a1fb8dfd603b",
+      "password": "d9812081-7f61-456d-9340-a1fb8dfd603b",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "tls": {
+        "enabled": true,
+        "server_name": "db1.nezhasu.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "SouthKorea9",
+      "type": "tuic",
+      "server": "158.180.79.168",
+      "server_port": 64413,
+      "uuid": "d9812081-7f61-456d-9340-a1fb8dfd603b",
+      "password": "d9812081-7f61-456d-9340-a1fb8dfd603b",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "tls": {
+        "enabled": true,
+        "server_name": "chuncheon-2.nezhasu.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "USA10",
+      "type": "tuic",
+      "server": "163.192.55.17",
+      "server_port": 59422,
+      "uuid": "d9812081-7f61-456d-9340-a1fb8dfd603b",
+      "password": "d9812081-7f61-456d-9340-a1fb8dfd603b",
+      "congestion_control": "bbr",
+      "udp_relay_mode": "native",
+      "tls": {
+        "enabled": true,
+        "server_name": "sanjose.nezhasu.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "final": "proxy",
+    "rule_set": [
+      {
+        "download_detour": "direct",
+        "format": "binary",
+        "tag": "geosite-ads",
+        "type": "remote",
+        "url": "https://raw.githubusercontent.com/itsyebekhe/meta-rules-dat-sing/main/geo/geosite/category-ads-all.srs"
+      },
+      {
+        "download_detour": "direct",
+        "format": "binary",
+        "tag": "geosite-private",
+        "type": "remote",
+        "url": "https://raw.githubusercontent.com/itsyebekhe/meta-rules-dat-sing/main/geo/geosite/private.srs"
+      },
+      {
+        "download_detour": "direct",
+        "format": "binary",
+        "tag": "geosite-ir",
+        "type": "remote",
+        "url": "https://raw.githubusercontent.com/itsyebekhe/meta-rules-dat-sing/main/geo/geosite/category-ir.srs"
+      },
+      {
+        "download_detour": "direct",
+        "format": "binary",
+        "tag": "geoip-private",
+        "type": "remote",
+        "url": "https://raw.githubusercontent.com/itsyebekhe/meta-rules-dat-sing/main/geo/geoip/private.srs"
+      },
+      {
+        "download_detour": "direct",
+        "format": "binary",
+        "tag": "geoip-ir",
+        "type": "remote",
+        "url": "https://raw.githubusercontent.com/itsyebekhe/meta-rules-dat-sing/main/geo/geoip/ir.srs"
+      }
+    ],
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "action": "route",
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "action": "route",
+        "clash_mode": "Global",
+        "outbound": "proxy"
+      },
+      {
+        "action": "hijack-dns",
+        "protocol": "dns"
+      },
+      {
+        "action": "route",
+        "outbound": "direct",
+        "rule_set": [
+          "geoip-private",
+          "geosite-private",
+          "geosite-ir",
+          "geoip-ir"
+        ]
+      },
+      {
+        "action": "reject",
+        "rule_set": [
+          "geosite-ads"
+        ]
+      }
+    ]
+  }
+}
