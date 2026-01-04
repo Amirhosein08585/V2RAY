@@ -1,0 +1,384 @@
+
+
+{
+  "log": {
+    "disabled": true,
+    "level": "panic"
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "Internet-dns",
+        "address": "tcp://94.140.14.14",
+        "strategy": "ipv4_only",
+        "detour": "Internet"
+      },
+      {
+        "tag": "direct-dns",
+        "address": "https://1.12.12.12/dns-query",
+        "strategy": "ipv4_only",
+        "detour": "direct"
+      }
+    ],
+    "rules": [
+      {
+        "network": "udp",
+        "port": 443,
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "outbound": "any",
+        "server": "direct-dns",
+        "rewrite_ttl": 20
+      },
+      {
+        "domain_suffix": [
+          ".ir",
+          ".xn--mgba3a4fra",
+          ".xn--mgba3a4f16a"
+        ],
+        "server": "direct-dns",
+        "rewrite_ttl": 20
+      }
+    ],
+    "strategy": "ipv4_only",
+    "independent_cache": true
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "Hiddify_Nexttt",
+      "mtu": 9000,
+      "address": "172.18.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "route_exclude_address": [
+        "192.168.0.0/16",
+        "fc00::/7"
+      ],
+      "stack": "mixed"
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "Internet",
+      "outbounds": [
+        
+"@Hiddify_Nexttt +0",
+"@Hiddify_Nexttt +1",
+"@Hiddify_Nexttt +2",
+"@Hiddify_Nexttt +3",
+"@Hiddify_Nexttt +4",
+"@Hiddify_Nexttt +5",
+"@Hiddify_Nexttt +6",
+"@Hiddify_Nexttt +7",
+"@Hiddify_Nexttt +8",
+"@Hiddify_Nexttt +9",
+"@Hiddify_Nexttt +10"
+
+      ]
+    }, 
+      
+   
+            {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt +0",
+      "server": "114.129.43.11",
+      "server_port": 443,
+      "uuid": "c192ba31-e83a-4b23-9830-2cd13c46cb76",
+      "tls": {
+        "enabled": true,
+        "server_name": "fl-dl32-205-109-65w25110.highsmartco.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt +1",
+      "server": "114.129.43.29",
+      "server_port": 443,
+      "uuid": "c192ba31-e83a-4b23-9830-2cd13c46cb76",
+      "tls": {
+        "enabled": true,
+        "server_name": "fl-dl224-192-109-65w25110.highsmartco.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt +2",
+      "server": "114.129.43.11",
+      "server_port": 443,
+      "uuid": "c192ba31-e83a-4b23-9830-2cd13c46cb76",
+      "tls": {
+        "enabled": true,
+        "server_name": "fl-dl143-204-109-65w25110.highsmartco.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt +3",
+      "server": "114.129.43.29",
+      "server_port": 443,
+      "uuid": "c192ba31-e83a-4b23-9830-2cd13c46cb76",
+      "tls": {
+        "enabled": true,
+        "server_name": "fl-dl255-187-109-65w25110.highsmartco.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt +4",
+      "server": "114.129.43.29",
+      "server_port": 443,
+      "uuid": "c192ba31-e83a-4b23-9830-2cd13c46cb76",
+      "tls": {
+        "enabled": true,
+        "server_name": "fl-dl220-183-109-65w25110.highsmartco.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt +5",
+      "server": "114.129.43.29",
+      "server_port": 443,
+      "uuid": "c192ba31-e83a-4b23-9830-2cd13c46cb76",
+      "tls": {
+        "enabled": true,
+        "server_name": "fl-dl173-201-109-65w25110.highsmartco.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt +6",
+      "server": "114.129.43.29",
+      "server_port": 443,
+      "uuid": "c192ba31-e83a-4b23-9830-2cd13c46cb76",
+      "tls": {
+        "enabled": true,
+        "server_name": "fl-dl27-188-109-65w25110.highsmartco.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt +7",
+      "server": "114.129.43.29",
+      "server_port": 443,
+      "uuid": "c192ba31-e83a-4b23-9830-2cd13c46cb76",
+      "tls": {
+        "enabled": true,
+        "server_name": "fl-dl158-176-109-65w25110.highsmartco.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt +8",
+      "server": "114.129.43.11",
+      "server_port": 443,
+      "uuid": "c192ba31-e83a-4b23-9830-2cd13c46cb76",
+      "tls": {
+        "enabled": true,
+        "server_name": "fl-dl146-202-109-65w25110.highsmartco.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt +9",
+      "server": "114.129.43.11",
+      "server_port": 443,
+      "uuid": "c192ba31-e83a-4b23-9830-2cd13c46cb76",
+      "tls": {
+        "enabled": true,
+        "server_name": "fl-dl8-221-109-65w25110.highsmartco.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "httpupgrade"
+      },
+      "packet_encoding": ""
+    },
+{
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt +10",
+      "server": "165.227.234.8",
+      "server_port": 2026,
+      "uuid": "08c7f096-d057-4d53-82fd-c739d372887b",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "skyroom.online"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "inbound": "dns-in"
+          },
+          {
+            "port": 53
+          },
+          {
+            "protocol": "dns"
+          }
+        ],
+        "action": "hijack-dns"
+      },
+      {
+        "network": "tcp",
+        "port": 853,
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "network": "udp",
+        "port": [
+          443,
+          853
+        ],
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "protocol": "stun",
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "source_ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ],
+        "ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ],
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "ip_cidr": [
+          "10.10.34.34",
+          "10.10.34.35",
+          "10.10.34.36"
+        ],
+        "action": "reject",
+        "method": "default"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      },
+      {
+        "domain_suffix": [
+          ".ir",
+          ".xn--mgba3a4fra",
+          ".xn--mgba3a4f16a"
+        ],
+        "outbound": "direct"
+      }
+    ],
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "cache.db",
+      "cache_id": "Hiddify_Nexttt"
+    }
+  }
+}
+
