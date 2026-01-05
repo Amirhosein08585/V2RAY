@@ -1,0 +1,30 @@
+{
+  "type": "http",
+  "tag": "@Hiddify_Nexttt",
+  "server": "89.249.65.199",
+  "server_port": 10780,
+  "headers": {
+    "Host": "stream.meet.google.com",
+    "Proxy-Authorization": "Basic cHVyZXZwbjBzMTgyMTQ4MDg6SW5hajZXN21yQ2RNWTM="
+  }
+},
+{
+  "type": "http",
+  "tag": "@Hiddify_Nexttt",
+  "server": "89.249.65.206",
+  "server_port": 10780,
+  "headers": {
+    "Host": "stream.meet.google.com",
+    "Proxy-Authorization": "Basic cHVyZXZwbjBzMTgyMTQ4MDg6SW5hajZXN21yQ2RNWTM="
+  }
+},
+{
+  "type": "http",
+  "tag": "@Hiddify_Nexttt",
+  "server": "89.238.150.20",
+  "server_port": 10780,
+  "headers": {
+    "Host": "stream.meet.google.com",
+    "Proxy-Authorization": "Basic cHVyZXZwbjBzMTgyMTQ4MDg6SW5hajZXN21yQ2RNWTM="
+  }
+}
