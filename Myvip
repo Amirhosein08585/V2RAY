@@ -1,0 +1,352 @@
+
+
+{
+  "dns": {
+    "final": "local-dns",
+    "rules": [
+      {
+        "action": "route",
+        "clash_mode": "Global",
+        "server": "proxy-dns",
+        "source_ip_cidr": [
+          "172.19.0.0/30",
+          "fdfe:dcba:9876::1/126"
+        ]
+      },
+      {
+        "action": "route",
+        "server": "proxy-dns",
+        "source_ip_cidr": [
+          "172.19.0.0/30",
+          "fdfe:dcba:9876::1/126"
+        ]
+      },
+      {
+        "action": "route",
+        "clash_mode": "Direct",
+        "server": "direct-dns"
+      },
+      {
+        "action": "route",
+        "rule_set": [
+          "geosite-ir"
+        ],
+        "server": "direct-dns"
+      }
+    ],
+    "servers": [
+      {
+        "address": "tcp://2.189.103.19",
+        "address_resolver": "local-dns",
+        "detour": "proxy",
+        "tag": "proxy-dns"
+      },
+      {
+        "address": "local",
+        "detour": "direct",
+        "tag": "local-dns"
+      },
+      {
+        "address": "tcp://8.8.8.8",
+        "detour": "direct",
+        "tag": "direct-dns"
+      }
+    ],
+    "strategy": "prefer_ipv4"
+  },
+  "inbounds": [
+    {
+      "address": [
+        "172.19.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
+      "auto_route": true,
+      "endpoint_independent_nat": false,
+      "mtu": 1420,
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 2080
+        }
+      },
+      "stack": "system",
+      "strict_route": false,
+      "type": "tun"
+    },
+    {
+      "listen": "127.0.0.1",
+      "listen_port": 2080,
+      "type": "mixed",
+      "users": []
+    }
+  ],
+  "outbounds": [
+    {
+      "outbounds": [
+        "auto",
+        "direct",
+        "SingBox1",
+        "SingBox2",
+        "SingBox3",
+        "SingBox4",
+        "SingBox5",
+        "SingBox6",
+        "SingBox7",
+        "SingBox8",
+        "SingBox15",
+        "SingBox16",
+        "SingBox18",
+        "SingBox17"
+      ],
+      "tag": "proxy",
+      "type": "selector"
+    },
+    {
+      "interval": "5m",
+      "outbounds": [
+        "SingBox1",
+        "SingBox2",
+        "SingBox3",
+        "SingBox4",
+        "SingBox5",
+        "SingBox6",
+        "SingBox7",
+        "SingBox8",
+        "SingBox15",
+        "SingBox16",
+        "SingBox18",
+        "SingBox17"
+      ],
+      "tag": "auto",
+      "tolerance": 50,
+      "type": "urltest",
+      "url": "http://www.gstatic.com/generate_204"
+    },
+    {
+      "tag": "direct",
+      "type": "direct"
+    },
+    {
+      "tag": "SingBox1",
+      "type": "vmess",
+      "server": "47.237.143.183",
+      "server_port": 8080,
+      "uuid": "98373372-a2e0-42d6-9221-bfa6f6687bc3",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "SingBox2",
+      "type": "vmess",
+      "server": "8.210.102.8",
+      "server_port": 8080,
+      "uuid": "c1605beb-04e3-4b96-9126-331702630d0a",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "SingBox3",
+      "type": "vmess",
+      "server": "8.217.201.102",
+      "server_port": 8080,
+      "uuid": "602a4353-b1ab-4633-b1ad-e26fc9bf5524",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "SingBox4",
+      "type": "vmess",
+      "server": "47.236.164.0",
+      "server_port": 8080,
+      "uuid": "8ecedf7e-a9bd-4de4-8f20-031aeb93631c",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "SingBox5",
+      "type": "vmess",
+      "server": "47.237.16.63",
+      "server_port": 8080,
+      "uuid": "8fe66650-fc21-4bc8-a8e4-1b9b3451f430",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "SingBox6",
+      "type": "vmess",
+      "server": "47.236.120.122",
+      "server_port": 8080,
+      "uuid": "c8c44965-d92a-4819-8f3f-b03c6ce9201e",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "SingBox7",
+      "type": "vmess",
+      "server": "8.216.13.21",
+      "server_port": 8080,
+      "uuid": "f67855c5-f679-49ad-921e-a68ec5a4cead",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "SingBox8",
+      "type": "vmess",
+      "server": "8.216.12.247",
+      "server_port": 8080,
+      "uuid": "1cfffe25-7cef-4f94-a37b-476a493304a6",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "SingBox15",
+      "type": "vless",
+      "server": "188.114.98.0",
+      "server_port": 443,
+      "uuid": "4525c260-df3c-4f62-b8f1-f4f5f305694b",
+      "flow": "",
+      "packet_encoding": "",
+      "tls": {
+        "enabled": true,
+        "server_name": "yyzsuabw9e3qd5ud7ihi5dxm96oglnsvr83cjojnm1efncfhr9ucordq.zjde5.de5.net",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "yyzsuabw9e3qd5ud7ihi5dxm96oglnsvr83cjojnm1efncfhr9ucordq.zjde5.de5.net"
+        }
+      }
+    },
+    {
+      "tag": "SingBox16",
+      "type": "trojan",
+      "server": "172.64.152.23",
+      "server_port": 443,
+      "password": "humanity",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.calmlunch.com",
+        "insecure": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": ""
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/assignment",
+        "headers": {
+          "Host": "www.calmlunch.com"
+        }
+      }
+    },
+    {
+      "tag": "SingBox18",
+      "type": "vless",
+      "server": "87.248.156.94",
+      "server_port": 49680,
+      "uuid": "da95628c-3091-4a88-8d94-9d9c9cd8bb3d",
+      "flow": "",
+      "packet_encoding": ""
+    },
+    {
+      "tag": "SingBox17",
+      "type": "vless",
+      "server": "94.184.24.7",
+      "server_port": 1027,
+      "uuid": "ba4c2726-fd93-411c-a999-99b5868cb8ba",
+      "flow": "",
+      "packet_encoding": "",
+      "transport": {
+        "type": "http",
+        "path": "",
+        "headers": {
+          "Host": "gharar.ir,igap.net,skyroom.online"
+        }
+      }
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "final": "proxy",
+    "rule_set": [
+      {
+        "download_detour": "direct",
+        "format": "binary",
+        "tag": "geosite-ads",
+        "type": "remote",
+        "url": "https://raw.githubusercontent.com/itsyebekhe/meta-rules-dat-sing/main/geo/geosite/category-ads-all.srs"
+      },
+      {
+        "download_detour": "direct",
+        "format": "binary",
+        "tag": "geosite-private",
+        "type": "remote",
+        "url": "https://raw.githubusercontent.com/itsyebekhe/meta-rules-dat-sing/main/geo/geosite/private.srs"
+      },
+      {
+        "download_detour": "direct",
+        "format": "binary",
+        "tag": "geosite-ir",
+        "type": "remote",
+        "url": "https://raw.githubusercontent.com/itsyebekhe/meta-rules-dat-sing/main/geo/geosite/category-ir.srs"
+      },
+      {
+        "download_detour": "direct",
+        "format": "binary",
+        "tag": "geoip-private",
+        "type": "remote",
+        "url": "https://raw.githubusercontent.com/itsyebekhe/meta-rules-dat-sing/main/geo/geoip/private.srs"
+      },
+      {
+        "download_detour": "direct",
+        "format": "binary",
+        "tag": "geoip-ir",
+        "type": "remote",
+        "url": "https://raw.githubusercontent.com/itsyebekhe/meta-rules-dat-sing/main/geo/geoip/ir.srs"
+      }
+    ],
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "action": "route",
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "action": "route",
+        "clash_mode": "Global",
+        "outbound": "proxy"
+      },
+      {
+        "action": "hijack-dns",
+        "protocol": "dns"
+      },
+      {
+        "action": "route",
+        "outbound": "direct",
+        "rule_set": [
+          "geoip-private",
+          "geosite-private",
+          "geosite-ir",
+          "geoip-ir"
+        ]
+      },
+      {
+        "action": "reject",
+        "rule_set": [
+          "geosite-ads"
+        ]
+      }
+    ]
+  }
+}
