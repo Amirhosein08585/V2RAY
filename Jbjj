@@ -1,0 +1,271 @@
+{
+  "dns": {
+    "final": "local-dns",
+    "strategy": "prefer_ipv4",
+    "rules": [
+      {
+        "action": "route",
+        "clash_mode": "Global",
+        "server": "proxy-dns",
+        "source_ip_cidr": [
+          "172.19.0.0/30",
+          "fdfe:dcba:9876::1/126"
+        ]
+      },
+      {
+        "action": "route",
+        "clash_mode": "Direct",
+        "server": "direct-dns"
+      }
+    ],
+    "servers": [
+      {
+        "tag": "proxy-dns",
+        "address": "tcp://1.1.1.1",
+        "address_resolver": "local-dns",
+        "detour": "proxy"
+      },
+      {
+        "tag": "local-dns",
+        "address": "local",
+        "detour": "direct"
+      },
+      {
+        "tag": "direct-dns",
+        "address": "tcp://8.8.8.8",
+        "detour": "direct"
+      }
+    ]
+  }, 
+
+  "inbounds": [
+    {
+      "type": "tun",
+      "stack": "system",
+      "address": [
+        "172.19.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
+      "mtu": 9000,
+      "auto_route": true,
+      "strict_route": false,
+      "endpoint_independent_nat": false,
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 2080
+        }
+      }
+    },
+    {
+      "type": "mixed",
+      "listen": "127.0.0.1",
+      "listen_port": 2080,
+      "users": []
+    }
+  ], 
+
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "proxy",
+      "outbounds": [
+        "auto",
+        "direct",
+        "@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram" 
+
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram",
+"@Hiddify_Nexttt Telegram" 
+
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    }, 
+
+    {
+  "tag": "@Hiddify_Nexttt  Telegram",
+  "type": "shadowsocks",
+  "server": "57.129.94.79",
+  "server_port": 11208,
+  "method": "chacha20-ietf-poly1305",
+  "password": "0047036c45596605"
+},
+{
+  "tag": "@Hiddify_Nexttt  Telegram",
+  "type": "hysteria2",
+  "server": "5.175.249.174",
+  "server_port": 35000,
+  "password": "b4bd0613-ff7c-4f2f-954d-185915e6ddad",
+  "obfs": {
+    "type": "salamander",
+    "password": "@JavidnamanIran-Javid-SHAH-KingRezaPahlavi"
+  },
+  "tls": {
+    "enabled": true,
+    "server_name": "api.kermanshahi.org",
+    "insecure": false,
+    "alpn": ["h3"]
+  }
+},
+{
+  "tag": "@Hiddify_Nexttt  Telegram",
+  "type": "shadowsocks",
+  "server": "82.38.31.101",
+  "server_port": 8080,
+  "method": "chacha20-ietf-poly1305",
+  "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+},
+{
+  "tag": "@Hiddify_Nexttt  Telegram",
+  "type": "trojan",
+  "server": "104.18.32.47",
+  "server_port": 443,
+  "password": "humanity",
+  "tls": {
+    "enabled": true,
+    "server_name": "www.gossipglove.com",
+    "insecure": true,
+    "utls": {
+      "enabled": true,
+      "fingerprint": "chrome"
+    }
+  },
+  "transport": {
+    "type": "ws",
+    "path": "/assignment",
+    "headers": {
+      "Host": "www.gossipglove.com"
+    }
+  }
+},
+{
+  "tag": "@Hiddify_Nexttt  Telegram",
+  "type": "shadowsocks",
+  "server": "54.36.174.140",
+  "server_port": 443,
+  "method": "chacha20-ietf-poly1305",
+  "password": "pvgz9pq"
+},
+{
+  "tag": "@Hiddify_Nexttt  Telegram",
+  "type": "vless",
+  "server": "185.137.27.254",
+  "server_port": 34126,
+  "uuid": "98c94896-9b29-476c-9485-b9f420172635",
+  "flow": "",
+  "packet_encoding": "xudp",
+  "transport": {
+    "type": "http",
+    "path": "/",
+    "headers": {
+      "Host": "skyroom.online,gharar.ir,igap.net"
+    }
+  }
+},
+{
+  "tag": "@Hiddify_Nexttt  Telegram",
+  "type": "shadowsocks",
+  "server": "51.75.89.203",
+  "server_port": 13021,
+  "method": "chacha20-ietf-poly1305",
+  "password": "7a57a403f1acaea1"
+},
+{
+  "tag": "@Hiddify_Nexttt  Telegram",
+  "type": "shadowsocks",
+  "server": "57.129.140.88",
+  "server_port": 8388,
+  "method": "chacha20-ietf-poly1305",
+  "password": "k1v5g9FefdoO"
+},
+{
+  "tag": "@Hiddify_Nexttt  Telegram",
+  "type": "shadowsocks",
+  "server": "82.38.31.210",
+  "server_port": 8080,
+  "method": "chacha20-ietf-poly1305",
+  "password": "k1dBOmOB4oqi7Ump37a1bQ"
+},
+{
+  "tag": "@Hiddify_Nexttt  Telegram",
+  "type": "shadowsocks",
+  "server": "135.125.247.29",
+  "server_port": 11201,
+  "method": "chacha20-ietf-poly1305",
+  "password": "333c4cae01f8bacf"
+},
+{
+  "tag": "@Hiddify_Nexttt  Telegram",
+  "type": "shadowsocks",
+  "server": "82.38.31.89",
+  "server_port": 8080,
+  "method": "chacha20-ietf-poly1305",
+  "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+},
+{
+  "tag": "@Hiddify_Nexttt  Telegram",
+  "type": "shadowsocks",
+  "server": "141.95.105.28",
+  "server_port": 11201,
+  "method": "chacha20-ietf-poly1305",
+  "password": "37ef4f029f1ac0ac"
+} 
+
+  ], 
+
+  "route": {
+    "auto_detect_interface": true,
+    "final": "proxy",
+    "rules": [
+      { "action": "sniff" }, 
+
+      {
+        "action": "route",
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "action": "route",
+        "clash_mode": "Global",
+        "outbound": "proxy"
+      },
+      {
+        "action": "hijack-dns",
+        "protocol": "dns"
+      }
+    ]
+  }
+}
