@@ -1,0 +1,651 @@
+{
+  "dns": {
+    "final": "local-dns",
+    "strategy": "prefer_ipv4",
+    "rules": [
+      {
+        "action": "route",
+        "clash_mode": "Global",
+        "server": "proxy-dns",
+        "source_ip_cidr": [
+          "172.19.0.0/30",
+          "fdfe:dcba:9876::1/126"
+        ]
+      },
+      {
+        "action": "route",
+        "clash_mode": "Global",
+        "server": "direct-dns"
+      }
+    ],
+    "servers": [
+      {
+        "tag": "proxy-dns",
+        "address": "tcp://1.1.1.1",
+        "address_resolver": "local-dns",
+        "detour": "proxy"
+      },
+      {
+        "tag": "local-dns",
+        "address": "local",
+        "detour": "direct"
+      },
+      {
+        "tag": "direct-dns",
+        "address": "tcp://8.8.8.8",
+        "detour": "direct"
+      }
+    ]
+  }, 
+
+  "inbounds": [
+    {
+      "type": "tun",
+      "stack": "system",
+      "address": [
+        "172.19.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
+      "mtu": 9000,
+      "auto_route": true,
+      "strict_route": false,
+      "endpoint_independent_nat": false,
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 2080
+        }
+      }
+    },
+    {
+      "type": "mixed",
+      "listen": "127.0.0.1",
+      "listen_port": 2080,
+      "users": []
+    }
+  ], 
+
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "proxy",
+      "outbounds": [
+        "auto",
+        "direct",
+             "selector-1",
+  "selector-2",
+  "selector-3",
+  "selector-4",
+  "selector-5",
+  "selector-6",
+  "selector-7",
+  "selector-8",
+  "selector-9",
+  "selector-10",
+  "selector-11",
+  "selector-12",
+  "selector-13",
+  "selector-14",
+  "selector-15",
+  "selector-16",
+  "selector-17",
+  "selector-18",
+  "selector-19",
+  "selector-20",
+  "selector-21",
+  "selector-22",
+  "selector-23",
+  "selector-24",
+  "selector-25",
+  "selector-26",
+  "selector-27",
+"selector-28"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+             "selector-1",
+  "selector-2",
+  "selector-3",
+  "selector-4",
+  "selector-5",
+  "selector-6",
+  "selector-7",
+  "selector-8",
+  "selector-9",
+  "selector-10",
+  "selector-11",
+  "selector-12",
+  "selector-13",
+  "selector-14",
+  "selector-15",
+  "selector-16",
+  "selector-17",
+  "selector-18",
+  "selector-19",
+  "selector-20",
+  "selector-21",
+  "selector-22",
+  "selector-23",
+  "selector-24",
+  "selector-25",
+  "selector-26",
+  "selector-27",
+"selector-28"
+
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    }, 
+
+    
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "138.199.31.8",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-1",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "107.175.196.99",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-2",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "146.70.212.102",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-3",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "149.88.25.228",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-4",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "149.40.52.227",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-5",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "103.107.197.180",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-6",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "149.102.251.21",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-7",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "149.50.222.2",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-8",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "149.88.98.130",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-9",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "198.144.155.68",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-10",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "149.102.238.165",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-11",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "149.88.19.19",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-12",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "149.50.217.196",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-13",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "37.19.217.82",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-14",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "79.127.181.234",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-15",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "103.109.103.118",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-16",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "103.109.103.61",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-17",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "152.233.4.244",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-18",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "212.103.50.212",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-19",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "149.34.253.93",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-20",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "149.50.215.109",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-21",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "45.250.255.25",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-22",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "108.181.50.190",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-23",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "185.135.87.117",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-24",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "185.253.96.243",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-25",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "203.27.106.83",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-26",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "66.234.147.73",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-27",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  },
+  {
+    "headers": { "Host": ["scholar.google.com"] },
+    "password": "zh610jxa",
+    "path": "",
+    "server": "194.110.114.99",
+    "server_port": 10780,
+    "domain_strategy": "",
+    "tag": "selector-28",
+    "tls": {
+      "alpn": ["h2,http/1.1"],
+      "disable_sni": false,
+      "enabled": false,
+      "server_name": "scholar.google.com"
+    },
+    "type": "http",
+    "username": "purevpn0s13627758"
+  }
+
+  ], 
+
+  "route": {
+    "auto_detect_interface": true,
+    "final": "proxy",
+    "rules": [
+      { "action": "sniff" }, 
+
+      {
+        "action": "route",
+        "clash_mode": "Global",
+        "outbound": "direct"
+      },
+      {
+        "action": "route",
+        "clash_mode": "Global",
+        "outbound": "proxy"
+      },
+      {
+        "action": "hijack-dns",
+        "protocol": "dns"
+      }
+    ]
+  }
+}
