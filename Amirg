@@ -1,0 +1,1682 @@
+{
+  "dns": {
+    "final": "local-dns",
+    "strategy": "prefer_ipv4",
+    "rules": [
+      {
+        "action": "route",
+        "clash_mode": "@Hiddify_Nexttt Vip",
+        "server": "proxy-dns",
+        "source_ip_cidr": [
+          "172.19.0.0/30",
+          "fdfe:dcba:9876::1/126"
+        ]
+      },
+      {
+        "action": "route",
+        "clash_mode": "@Hiddify_Nexttt Vip",
+        "server": "direct-dns"
+      }
+    ],
+    "servers": [
+      {
+        "tag": "proxy-dns",
+        "address": "tcp://1.1.1.1",
+        "address_resolver": "local-dns",
+        "detour": "proxy"
+      },
+      {
+        "tag": "local-dns",
+        "address": "local",
+        "detour": "direct"
+      },
+      {
+        "tag": "direct-dns",
+        "address": "tcp://8.8.8.8",
+        "detour": "direct"
+      }
+    ]
+  }, 
+
+  "inbounds": [
+    {
+      "type": "tun",
+      "stack": "system",
+      "address": [
+        "172.19.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
+      "mtu": 9000,
+      "auto_route": true,
+      "strict_route": false,
+      "endpoint_independent_nat": false,
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 2080
+        }
+      }
+    },
+    {
+      "type": "mixed",
+      "listen": "127.0.0.1",
+      "listen_port": 2080,
+      "users": []
+    }
+  ], 
+
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "proxy",
+      "outbounds": [
+        "auto",
+        "direct",
+             "D1-TLS § 0",
+        "D1-TCP § 1",
+        "D2-TLS § 2",
+        "D2-TCP § 3",
+        "D3-TLS § 4",
+        "D3-TCP § 5",
+        "D4-TLS § 6",
+        "D4-TCP § 7",
+        "D5-TLS § 8",
+        "D5-TCP § 9",
+        "D6-TLS § 10",
+        "D6-TCP § 11",
+        "D7-TLS § 12",
+        "D7-TCP § 13",
+        "D8-TLS § 14",
+        "D8-TCP § 15",
+        "D9-TLS § 16",
+        "D9-TCP § 17",
+        "D10-TLS § 18",
+        "D10-TCP § 19",
+        "D11-TLS § 20",
+        "D11-TCP § 21",
+        "D12-TLS § 22",
+        "D12-TCP § 23",
+        "D13-TLS § 24",
+        "D13-TCP § 25",
+        "D14-TLS § 26",
+        "D14-TCP § 27",
+        "D15-TLS § 28",
+        "D15-TCP § 29",
+        "D16-TLS § 30",
+        "D16-TCP § 31",
+        "D17-TLS § 32",
+        "D17-TCP § 33",
+        "D18-TLS § 34",
+        "D18-TCP § 35",
+        "D19-TLS § 36",
+        "D19-TCP § 37",
+        "D20-TLS § 38",
+        "D20-TCP § 39",
+        "D21-TLS § 40",
+        "D21-TCP § 41",
+        "D22-TLS § 42",
+        "D22-TCP § 43",
+        "D23-TLS § 44",
+        "D23-TCP § 45",
+        "D24-TLS § 46",
+        "D24-TCP § 47",
+        "D25-TLS § 48",
+        "D25-TCP § 49",
+        "D26-TLS § 50",
+        "D26-TCP § 51",
+        "D27-TLS § 52",
+        "D27-TCP § 53",
+        "D28-TLS § 54",
+        "D28-TCP § 55",
+        "D29-TLS § 56",
+        "D29-TCP § 57",
+        "D30-TLS § 58",
+        "D30-TCP § 59",
+        "IP1-TLS § 60",
+        "IP1-TCP § 61",
+        "IP2-TLS § 62",
+        "IP2-TCP § 63",
+        "IP3-TLS § 64",
+        "IP3-TCP § 65",
+        "IP4-TLS § 66",
+        "IP4-TCP § 67"
+      
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+             "D1-TLS § 0",
+        "D1-TCP § 1",
+        "D2-TLS § 2",
+        "D2-TCP § 3",
+        "D3-TLS § 4",
+        "D3-TCP § 5",
+        "D4-TLS § 6",
+        "D4-TCP § 7",
+        "D5-TLS § 8",
+        "D5-TCP § 9",
+        "D6-TLS § 10",
+        "D6-TCP § 11",
+        "D7-TLS § 12",
+        "D7-TCP § 13",
+        "D8-TLS § 14",
+        "D8-TCP § 15",
+        "D9-TLS § 16",
+        "D9-TCP § 17",
+        "D10-TLS § 18",
+        "D10-TCP § 19",
+        "D11-TLS § 20",
+        "D11-TCP § 21",
+        "D12-TLS § 22",
+        "D12-TCP § 23",
+        "D13-TLS § 24",
+        "D13-TCP § 25",
+        "D14-TLS § 26",
+        "D14-TCP § 27",
+        "D15-TLS § 28",
+        "D15-TCP § 29",
+        "D16-TLS § 30",
+        "D16-TCP § 31",
+        "D17-TLS § 32",
+        "D17-TCP § 33",
+        "D18-TLS § 34",
+        "D18-TCP § 35",
+        "D19-TLS § 36",
+        "D19-TCP § 37",
+        "D20-TLS § 38",
+        "D20-TCP § 39",
+        "D21-TLS § 40",
+        "D21-TCP § 41",
+        "D22-TLS § 42",
+        "D22-TCP § 43",
+        "D23-TLS § 44",
+        "D23-TCP § 45",
+        "D24-TLS § 46",
+        "D24-TCP § 47",
+        "D25-TLS § 48",
+        "D25-TCP § 49",
+        "D26-TLS § 50",
+        "D26-TCP § 51",
+        "D27-TLS § 52",
+        "D27-TCP § 53",
+        "D28-TLS § 54",
+        "D28-TCP § 55",
+        "D29-TLS § 56",
+        "D29-TCP § 57",
+        "D30-TLS § 58",
+        "D30-TCP § 59",
+        "IP1-TLS § 60",
+        "IP1-TCP § 61",
+        "IP2-TLS § 62",
+        "IP2-TCP § 63",
+        "IP3-TLS § 64",
+        "IP3-TCP § 65",
+        "IP4-TLS § 66",
+        "IP4-TCP § 67"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    }, 
+
+    {
+      "type": "vless",
+      "tag": "D1-TLS § 0",
+      "server": "green-pond-5032.580v250.workers.dev",
+      "server_port": 2087,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "gReeN-POnD-5032.580v250.WoRKErs.dEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/V0lkanNUV1qk5XLYzFlOdS",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D1-TCP § 1",
+      "server": "green-pond-5032.580v250.workers.dev",
+      "server_port": 80,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/OIpYZtL32eCojfTpQsgSyf",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D2-TLS § 2",
+      "server": "creativecommons.org",
+      "server_port": 2053,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "GrEEn-pOnd-5032.580v250.wOrKerS.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/rG2vAKNv6mQysUquRFk4MP",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D2-TCP § 3",
+      "server": "creativecommons.org",
+      "server_port": 8880,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/h8aVj226zWP1eDYYL4FE6T",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D3-TLS § 4",
+      "server": "2027.victoriacross.ir",
+      "server_port": 443,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "GrEEN-PonD-5032.580V250.WOrKERs.dEV",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/kSGEQmWJes7Bi2qMaBUHOK",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D3-TCP § 5",
+      "server": "2027.victoriacross.ir",
+      "server_port": 2082,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/ib3IXTvTFtyXym5ZlKRgPK",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D4-TLS § 6",
+      "server": "www.speedtest.net",
+      "server_port": 8443,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "GREEN-pOND-5032.580V250.woRKeRs.DeV",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/a3fZQeNkLHXgW90zFLVrpy",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D4-TCP § 7",
+      "server": "www.speedtest.net",
+      "server_port": 8880,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/W0WSjJVs3DLi9DPEy9yCue",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D5-TLS § 8",
+      "server": "sky.rethinkdns.com",
+      "server_port": 2083,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "GrEen-POnd-5032.580v250.WorkeRs.dEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/tzYvctSZYrX7wiqUhzrHQJ",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D5-TCP § 9",
+      "server": "sky.rethinkdns.com",
+      "server_port": 8080,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/nTZLneDDAVNVpoBu9NJgia",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D6-TLS § 10",
+      "server": "chat.openai.com",
+      "server_port": 8443,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "grEEN-poND-5032.580V250.wOrKerS.deV",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/APdZn19JZaxyK7UojZlWnA",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D6-TCP § 11",
+      "server": "chat.openai.com",
+      "server_port": 2086,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/HP20WMzc5OHZpX4AbIsZpO",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D7-TLS § 12",
+      "server": "cfip.xxxxxxxx.tk",
+      "server_port": 2087,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "GREen-pONd-5032.580v250.WOrkErS.DEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/r4QTzGZHpmWUTUUDgaA565",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D7-TCP § 13",
+      "server": "cfip.xxxxxxxx.tk",
+      "server_port": 2095,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/ZMuf7iHpcCG6iBzX4FtnMV",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D8-TLS § 14",
+      "server": "go.inmobi.com",
+      "server_port": 8443,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "GrEEN-pONd-5032.580V250.woRKERS.DEV",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/8D5npLEc9Qywa24m5nxwZJ",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D8-TCP § 15",
+      "server": "go.inmobi.com",
+      "server_port": 2052,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/Q3zSp2T02PbOlK8WTbhDEm",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D9-TLS § 16",
+      "server": "singapore.com",
+      "server_port": 8443,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "gReen-ponD-5032.580v250.worKErs.DeV",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/5Q1n6nnLh2XqRj2Sbp0VlT",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D9-TCP § 17",
+      "server": "singapore.com",
+      "server_port": 8080,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/K28Bv7eUDEGM7pg0sAzwvr",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D10-TLS § 18",
+      "server": "www.visa.com",
+      "server_port": 2087,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "GreEN-pond-5032.580V250.wOrkERS.dEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/usih6MVzCDJblby5d8Ilg0",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D10-TCP § 19",
+      "server": "www.visa.com",
+      "server_port": 80,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/nOJRjnKAIogSCpuwcs0ixo",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D11-TLS § 20",
+      "server": "www.wto.org",
+      "server_port": 2083,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "greeN-PONd-5032.580V250.workerS.deV",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/7N1C21eomM7qUO7reR9z5y",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D11-TCP § 21",
+      "server": "www.wto.org",
+      "server_port": 2052,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/PmXDD2WGRQOmyzK8f8Wogi",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D12-TLS § 22",
+      "server": "chatgpt.com",
+      "server_port": 2083,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "GrEeN-Pond-5032.580V250.WORkERS.dEV",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/s1HEdef3gXP7JJJCOsxSXh",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D12-TCP § 23",
+      "server": "chatgpt.com",
+      "server_port": 2095,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/1EQcL3BParhikSm7jfC35K",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D13-TLS § 24",
+      "server": "yakamoz.nscl.ir",
+      "server_port": 443,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "green-PoNd-5032.580V250.woRkERs.DEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/s2ndKVcDVpEMXgGfLkEbBi",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D13-TCP § 25",
+      "server": "yakamoz.nscl.ir",
+      "server_port": 2052,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/TVob1tAjC5DDrynmfqH9Ig",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D14-TLS § 26",
+      "server": "nodejs.org",
+      "server_port": 8443,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "GreEN-PonD-5032.580v250.wOrkeRS.Dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/UVPSPMC3EFhWtDYftRI19P",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D14-TCP § 27",
+      "server": "nodejs.org",
+      "server_port": 2095,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/pN1XIYLuJ6P1VE2NKgXrbf",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D15-TLS § 28",
+      "server": "zzula.ir",
+      "server_port": 8443,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "GReeN-POND-5032.580v250.wOrkERs.Dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/HxwRkC0oqQbPASaFwBVeEY",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D15-TCP § 29",
+      "server": "zzula.ir",
+      "server_port": 80,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/jGh0rOMWfPD56bWG88OR4U",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D16-TLS § 30",
+      "server": "csgo.com",
+      "server_port": 8443,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "GreEn-POND-5032.580v250.WoRkers.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/hBjU4eo1D79MIlpvyE6l8j",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D16-TCP § 31",
+      "server": "csgo.com",
+      "server_port": 2086,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/A9eF6zGnTGu82zOWp8Xeuj",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D17-TLS § 32",
+      "server": "fbi.gov",
+      "server_port": 8443,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "GreeN-PONd-5032.580V250.workErs.DEV",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/hATu4V1zdTYDPniCTzVPRU",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D17-TCP § 33",
+      "server": "fbi.gov",
+      "server_port": 80,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/yRm5IypYeVWnf3DirwhjL1",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D18-TLS § 34",
+      "server": "104.18.123.21",
+      "server_port": 8443,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "gREEN-POnD-5032.580V250.wORkErS.dEV",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/x7NS1WCIMKchxwMwLP2o2C",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D18-TCP § 35",
+      "server": "104.18.123.21",
+      "server_port": 2095,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/llYh1ZfGCPEDcGgNqZhYTf",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D19-TLS § 36",
+      "server": "138.124.107.35",
+      "server_port": 2083,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "GreEn-Pond-5032.580v250.WorkERs.deV",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/787jthqHcqGMYN9a1UtlnE",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D19-TCP § 37",
+      "server": "138.124.107.35",
+      "server_port": 80,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/hMQTgYs0GUP4VS55VW5qAr",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D20-TLS § 38",
+      "server": "188.114.97.3",
+      "server_port": 2096,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "gREEn-POnD-5032.580v250.WOrKErs.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/H1M7DodFN8OZccVhiWriE8",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D20-TCP § 39",
+      "server": "188.114.97.3",
+      "server_port": 80,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/fsKYQG7MqQXO4i06abmyMp",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D21-TLS § 40",
+      "server": "188.114.96.3",
+      "server_port": 2096,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "GreeN-pOnD-5032.580V250.wOrkers.deV",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/RAb7WdXW1vxaQ4fLWmbVok",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D21-TCP § 41",
+      "server": "188.114.96.3",
+      "server_port": 80,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/TsWYJKhAeEFxfeYcAoNZjs",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D22-TLS § 42",
+      "server": "104.21.0.227",
+      "server_port": 443,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "grEEn-pOND-5032.580V250.WOrkeRs.DEV",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/wpWwT9rje5yMZIvpkNxSXq",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D22-TCP § 43",
+      "server": "104.21.0.227",
+      "server_port": 8880,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/vJBMjDthdgbBE8awACY5IZ",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D23-TLS § 44",
+      "server": "104.21.40.34",
+      "server_port": 2083,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "GReEn-PonD-5032.580v250.WOrKeRs.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/SuHey84FDOLPsggMfQnmka",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D23-TCP § 45",
+      "server": "104.21.40.34",
+      "server_port": 8880,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/moKS2snjPtFALR3uZbX3PP",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D24-TLS § 46",
+      "server": "205.233.181.254",
+      "server_port": 2096,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "gREEN-pOnD-5032.580v250.WORkeRS.dEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Tde9Ibq3xpNxrWM14LFQGu",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D24-TCP § 47",
+      "server": "205.233.181.254",
+      "server_port": 2052,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/ACtkr36gtUHKF8Ol8Eskhz",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D25-TLS § 48",
+      "server": "172.64.152.23",
+      "server_port": 2087,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "GrEen-POND-5032.580V250.WOrKeRS.Dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/nDkloqefHQbKQDqWuVyKpd",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D25-TCP § 49",
+      "server": "172.64.152.23",
+      "server_port": 2052,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/zjkYLhnHyYRp2Pc30KcpET",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D26-TLS § 50",
+      "server": "172.67.142.152",
+      "server_port": 8443,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "gReen-pond-5032.580v250.WorkERS.DeV",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/O8BtdfVRc3oD4QrLxgiLaO",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D26-TCP § 51",
+      "server": "172.67.142.152",
+      "server_port": 2052,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/6XL4kzfODv2Rw9koztXcDj",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D27-TLS § 52",
+      "server": "172.67.201.77",
+      "server_port": 443,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "gReeN-POnd-5032.580v250.WorkERS.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/wNMyiSRahFA2OppNNqAsX2",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D27-TCP § 53",
+      "server": "172.67.201.77",
+      "server_port": 80,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/JemvVqvjGOfnwDNZEcOtac",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D28-TLS § 54",
+      "server": "205.233.181.229",
+      "server_port": 443,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "GReen-pOnD-5032.580V250.WoRkerS.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/eN3zPeVzVZOhLtaHuDYJJG",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D28-TCP § 55",
+      "server": "205.233.181.229",
+      "server_port": 8080,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/iJEjB3ck9EQ5EYk7xplEdN",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D29-TLS § 56",
+      "server": "205.233.181.241",
+      "server_port": 2087,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "gReEn-POnd-5032.580v250.WORKerS.DEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/VIwiJAugDlhkvCACaGFZrM",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D29-TCP § 57",
+      "server": "205.233.181.241",
+      "server_port": 2052,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/9ICzxJIQ6WL4jrepDrreZt",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D30-TLS § 58",
+      "server": "205.233.181.254",
+      "server_port": 443,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "GREen-pOnd-5032.580v250.workERS.deV",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/B5BZmL2fpBH9p9gL8eUyMl",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "D30-TCP § 59",
+      "server": "205.233.181.254",
+      "server_port": 2095,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/xP3HHBmlhdU3FsesrTw5vj",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "IP1-TLS § 60",
+      "server": "141.101.114.24",
+      "server_port": 2053,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "gReeN-poND-5032.580V250.WorKERs.DEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/C7VuZfY3sebCmsjYcmLpql",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "IP1-TCP § 61",
+      "server": "141.101.114.24",
+      "server_port": 2086,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/agNYdw5XBZHT9vQixprkXk",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "IP2-TLS § 62",
+      "server": "141.101.114.104",
+      "server_port": 2096,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "grEeN-poND-5032.580v250.WorkerS.dEV",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ztIDZBSSlgvCuzm8lPMRPs",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "IP2-TCP § 63",
+      "server": "141.101.114.104",
+      "server_port": 2052,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/oLXhImkuz2QEjZ5992W0M9",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "IP3-TLS § 64",
+      "server": "104.16.9.245",
+      "server_port": 443,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "GREEn-PonD-5032.580v250.woRkers.Dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/1Tp03MXckUkOQvIf9xnGEO",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "IP3-TCP § 65",
+      "server": "104.16.9.245",
+      "server_port": 2095,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/H94sY0o4TITcdtWmGD4WZE",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "IP4-TLS § 66",
+      "server": "141.101.114.165",
+      "server_port": 2083,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "tls": {
+        "enabled": true,
+        "server_name": "GrEEN-pOnd-5032.580V250.WORKERs.DEv",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/tV3w43cHXN3HVtA8oL6tDY",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    {
+      "type": "vless",
+      "tag": "IP4-TCP § 67",
+      "server": "141.101.114.165",
+      "server_port": 8880,
+      "uuid": "a621ea48-f64a-4b8b-8bbd-160fae9ecd1e",
+      "transport": {
+        "type": "ws",
+        "path": "/XWiHf2P2npzpNix6E89lua",
+        "headers": {
+          "Host": "green-pond-5032.580v250.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+    
+  ], 
+
+  "route": {
+    "auto_detect_interface": true,
+    "final": "proxy",
+    "rules": [
+      { "action": "sniff" }, 
+
+      {
+        "action": "route",
+        "clash_mode": "@Hiddify_Nexttt Vip",
+        "outbound": "direct"
+      },
+      {
+        "action": "route",
+        "clash_mode": "@Hiddify_Nexttt Vip",
+        "outbound": "proxy"
+      },
+      {
+        "action": "hijack-dns",
+        "protocol": "dns"
+      }
+    ]
+  }
+}
