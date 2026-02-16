@@ -1,0 +1,656 @@
+{
+  "log": {
+    "level": "warn",
+    "output": "box.log",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns-remote",
+        "address": "udp://1.1.1.1",
+        "address_resolver": "dns-direct"
+      },
+      {
+        "tag": "dns-trick-direct",
+        "address": "https://sky.rethinkdns.com/",
+        "detour": "direct-fragment"
+      },
+      {
+        "tag": "dns-direct",
+        "address": "1.1.1.1",
+        "address_resolver": "dns-local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-local",
+        "address": "local",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-block",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "domain_suffix": ".ir",
+        "geosite": "ir",
+        "server": "dns-direct"
+      },
+      {
+        "domain": "cp.cloudflare.com",
+        "server": "dns-remote",
+        "rewrite_ttl": 3000
+      }
+    ],
+    "final": "dns-remote",
+    "static_ips": {
+      "sky.rethinkdns.com": [
+        "194.50.216.61",
+        "104.17.147.22",
+        "104.17.148.22",
+        "2606:4700::6812:130",
+        "2606:4700::6812:30",
+        "104.18.0.48",
+        "104.18.1.48"
+      ]
+    },
+    "independent_cache": true
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "mtu": 9000,
+      "inet4_address": "172.19.0.1/28",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "mixed",
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 2334,
+      "sniff": true,
+      "sniff_override_destination": true
+    },
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "127.0.0.1",
+      "listen_port": 6450,
+      "override_address": "1.1.1.1",
+      "override_port": 53
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "selector-1",
+        "selector-2",
+        "selector-3",
+        "selector-4",
+        "selector-5",
+        "selector-6",
+        "selector-7",
+        "selector-8",
+        "selector-9",
+        "selector-10",
+        "selector-11",
+        "selector-12",
+        "selector-13",
+        "selector-14",
+        "selector-15",
+        "selector-16",
+        "selector-17",
+        "selector-18",
+        "selector-19",
+        "selector-20",
+        "selector-21",
+        "selector-22",
+        "selector-23",
+        "selector-24",
+        "selector-25",
+        "selector-26",
+        "selector-27",
+        "selector-28"
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "selector-1",
+        "selector-2",
+        "selector-3",
+        "selector-4",
+        "selector-5",
+        "selector-6",
+        "selector-7",
+        "selector-8",
+        "selector-9",
+        "selector-10",
+        "selector-11",
+        "selector-12",
+        "selector-13",
+        "selector-14",
+        "selector-15",
+        "selector-16",
+        "selector-17",
+        "selector-18",
+        "selector-19",
+        "selector-20",
+        "selector-21",
+        "selector-22",
+        "selector-23",
+        "selector-24",
+        "selector-25",
+        "selector-26",
+        "selector-27",
+        "selector-28"
+      ],
+      "url": "http://cp.cloudflare.com/",
+      "interval": "10m0s",
+      "idle_timeout": "1h40m0s"
+    },
+    {
+      "type": "http",
+      "tag": "selector-1",
+      "server": "138.199.31.8",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-2",
+      "server": "107.175.196.99",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-3",
+      "server": "146.70.212.102",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-4",
+      "server": "149.88.25.228",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-5",
+      "server": "149.40.52.227",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-6",
+      "server": "103.107.197.180",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-7",
+      "server": "149.102.251.21",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-8",
+      "server": "149.50.222.2",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-9",
+      "server": "149.88.98.130",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-10",
+      "server": "198.144.155.68",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-11",
+      "server": "149.102.238.165",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-12",
+      "server": "149.88.19.19",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-13",
+      "server": "149.50.217.196",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-14",
+      "server": "37.19.217.82",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-15",
+      "server": "79.127.181.234",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-16",
+      "server": "103.109.103.118",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-17",
+      "server": "103.109.103.61",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-18",
+      "server": "152.233.4.244",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-19",
+      "server": "212.103.50.212",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-20",
+      "server": "149.34.253.93",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-21",
+      "server": "149.50.215.109",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-22",
+      "server": "45.250.255.25",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-23",
+      "server": "108.181.50.190",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-24",
+      "server": "185.135.87.117",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-25",
+      "server": "185.253.96.243",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-26",
+      "server": "203.27.106.83",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-27",
+      "server": "66.234.147.73",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "http",
+      "tag": "selector-28",
+      "server": "194.110.114.99",
+      "server_port": 10780,
+      "username": "purevpn0s13627758",
+      "password": "zh610jxa",
+      "tls": {
+        "server_name": "scholar.google.com",
+        "alpn": "h2,http/1.1"
+      },
+      "headers": {
+        "Host": "scholar.google.com"
+      }
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "direct",
+      "tag": "direct-fragment",
+      "tls_fragment": {
+        "enabled": true,
+        "size": "1-500",
+        "sleep": "0-500"
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "bypass"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "geoip": {
+      "path": "geo-assets/sagernet-sing-geoip-geoip.db"
+    },
+    "geosite": {
+      "path": "geo-assets/sagernet-sing-geosite-geosite.db"
+    },
+    "rules": [
+      {
+        "inbound": "dns-in",
+        "outbound": "dns-out"
+      },
+      {
+        "port": 53,
+        "outbound": "dns-out"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "select"
+      },
+      {
+        "domain_suffix": ".ir",
+        "geosite": "ir",
+        "geoip": "ir",
+        "outbound": "bypass"
+      }
+    ],
+    "final": "select",
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "clash.db"
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:6756",
+      "secret": "NbWVRWCWsOc4r9Sa"
+    }
+  }
+}
