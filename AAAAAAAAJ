@@ -1,0 +1,194 @@
+{
+  "dns": {
+    "final": "local-dns",
+    "strategy": "prefer_ipv4",
+    "rules": [
+      {
+        "action": "route",
+        "clash_mode": "@Hiddify_Nexttt 👈 کانال تلگرامی ما",
+        "server": "proxy-dns",
+        "source_ip_cidr": [
+          "172.19.0.0/30",
+          "fdfe:dcba:9876::1/126"
+        ]
+      },
+      {
+        "action": "route",
+        "clash_mode": "@Hiddify_Nexttt 👈 کانال تلگرامی ما",
+        "server": "direct-dns"
+      }
+    ],
+    "servers": [
+      {
+        "tag": "proxy-dns",
+        "address": "tcp://1.1.1.1",
+        "address_resolver": "local-dns",
+        "detour": "proxy"
+      },
+      {
+        "tag": "local-dns",
+        "address": "local",
+        "detour": "direct"
+      },
+      {
+        "tag": "direct-dns",
+        "address": "tcp://8.8.8.8",
+        "detour": "direct"
+      }
+    ]
+  }, 
+
+  "inbounds": [
+    {
+      "type": "tun",
+      "stack": "system",
+      "address": [
+        "172.19.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
+      "mtu": 9000,
+      "auto_route": true,
+      "strict_route": false,
+      "endpoint_independent_nat": false,
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 2080
+        }
+      }
+    },
+    {
+      "type": "mixed",
+      "listen": "127.0.0.1",
+      "listen_port": 2080,
+      "users": []
+    }
+  ], 
+
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "proxy",
+      "outbounds": [
+        "auto",
+        "direct",
+             "@Hiddify_Nexttt 👈کانال تلگرامی ما",
+"@Hiddify_Nexttt 👈🌄 کانال تلگرامی ما",
+"@Hiddify_Nexttt 👈🧨 کانال تلگرامی ما"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+             "@Hiddify_Nexttt 👈کانال تلگرامی ما",
+"@Hiddify_Nexttt 👈🌄 کانال تلگرامی ما",
+"@Hiddify_Nexttt 👈🧨 کانال تلگرامی ما"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    }, 
+
+    
+         {
+      "type": "trojan",
+      "tag": "@Hiddify_Nexttt 👈 کانال تلگرام ما",
+      "server": "188.114.97.6",
+      "server_port": 443,
+      "password": "O3P8Ehq4gL",
+      "tls": {
+        "enabled": true,
+        "server_name": "s5.aananas.ir",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "s5.aananas.ir"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "@Hiddify_Nexttt 👈🌄 کانال تلگرامی ما",
+      "server": "188.114.97.6",
+      "server_port": 443,
+      "password": "BRuzzVB4bB",
+      "tls": {
+        "enabled": true,
+        "server_name": "s6.aananas.ir",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "s6.aananas.ir"
+        },
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "@Hiddify_Nexttt 👈🧨 کانال تلگرامی ما",
+      "server": "fast.cd-tur4.ir",
+      "server_port": 443,
+      "uuid": "cb7b5122-7030-4d3d-9590-da00fafe1c05",
+      "tls": {
+        "enabled": true,
+        "server_name": "default.ssl.fastly.net",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "bazaryabab.global.ssl.fastly.net"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "packet_encoding": ""
+    },
+
+  "route": {
+    "auto_detect_interface": true,
+    "final": "proxy",
+    "rules": [
+      { "action": "sniff" }, 
+
+      {
+        "action": "route",
+        "clash_mode": "@Hiddify_Nexttt 👈 کانال تلگرامی ما",
+        "outbound": "direct"
+      },
+      {
+        "action": "route",
+        "clash_mode": "@Hiddify_Nexttt 👈 کانال تلگرامی ما",
+        "outbound": "proxy"
+      },
+      {
+        "action": "hijack-dns",
+        "protocol": "dns"
+      }
+    ]
+  }
+}
